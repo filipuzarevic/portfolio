@@ -46,9 +46,9 @@ function updateActiveNavLink() {
 
         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
             navLinks.forEach(link => {
-                link.style.color = '';
+                link.classList.remove('active');
                 if (link.getAttribute('href') === `#${sectionId}`) {
-                    link.style.color = 'var(--text-primary)';
+                    link.classList.add('active');
                 }
             });
         }
