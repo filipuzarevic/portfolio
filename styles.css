@@ -1,3 +1,6 @@
+/* Import Inter Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -12,16 +15,18 @@
     --bg-gradient-mid: #0f0420;
     --bg-gradient-end: #0a0a0f;
     --text-primary: #ffffff;
-    --text-secondary: #b8b8c3;
+    --text-secondary: #c7c7d1;
     --text-muted: #7a7a8c;
     --purple-primary: #a855f7;
     --purple-light: #c084fc;
     --purple-dark: #7c3aed;
+    --cyan-accent: #06b6d4;
+    --amber-accent: #f59e0b;
     --border-color: rgba(255, 255, 255, 0.1);
     --card-bg: rgba(20, 20, 30, 0.6);
 
     /* Typography */
-    --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
     /* Spacing */
     --container-max-width: 1200px;
@@ -98,6 +103,22 @@ body {
     color: var(--text-primary);
 }
 
+.nav-cta {
+    padding: 10px 24px;
+    background: var(--purple-primary);
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.nav-cta:hover {
+    background: var(--purple-dark);
+    transform: translateY(-1px);
+}
+
 /* Hero Section */
 .hero {
     min-height: 100vh;
@@ -125,11 +146,11 @@ body {
 }
 
 .hero-title {
-    font-size: 72px;
-    font-weight: 600;
-    line-height: 1.1;
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 1.05;
     margin-bottom: 30px;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
 }
 
 .gradient-text {
@@ -150,21 +171,68 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 14px 32px;
-    background: rgba(168, 85, 247, 0.1);
-    border: 1px solid rgba(168, 85, 247, 0.3);
+    padding: 16px 40px;
+    background: var(--purple-primary);
+    border: none;
     color: var(--text-primary);
     text-decoration: none;
-    border-radius: 8px;
-    font-size: 16px;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 600;
     transition: all 0.3s ease;
     margin-bottom: 100px;
+    box-shadow: 0 4px 20px rgba(168, 85, 247, 0.3);
 }
 
 .btn-primary:hover {
-    background: rgba(168, 85, 247, 0.2);
-    border-color: rgba(168, 85, 247, 0.5);
+    background: var(--purple-dark);
     transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(168, 85, 247, 0.4);
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 40px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+}
+
+.btn-contact-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 20px 48px;
+    background: var(--purple-primary);
+    border: none;
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(168, 85, 247, 0.3);
+    margin-bottom: 48px;
+}
+
+.btn-contact-primary:hover {
+    background: var(--purple-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(168, 85, 247, 0.4);
 }
 
 /* Stats Grid */
@@ -518,6 +586,50 @@ section {
 .open-to-list li {
     font-size: 14px;
     color: var(--text-secondary);
+}
+
+/* Client Logo Bar */
+.logo-bar {
+    padding: 60px 0 0;
+    text-align: center;
+}
+
+.logo-bar-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 32px;
+    font-weight: 600;
+}
+
+.logo-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    opacity: 0.6;
+}
+
+.logo-item {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    filter: grayscale(1) brightness(2);
+    transition: all 0.3s ease;
+}
+
+.logo-item:hover {
+    filter: grayscale(0) brightness(1);
+    opacity: 1;
+}
+
+.logo-item img {
+    height: 100%;
+    width: auto;
+    max-width: 140px;
+    object-fit: contain;
 }
 
 /* Footer */
