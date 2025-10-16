@@ -1,3 +1,56 @@
+console.log('Script loaded!');
+
+// Hamburger menu toggle - Simple and direct approach
+window.addEventListener('load', function() {
+    console.log('Window loaded!');
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    console.log('Hamburger:', hamburger);
+    console.log('Nav Menu:', navMenu);
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Hamburger clicked!');
+
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+
+            if (navMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close menu when clicking on a nav link
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const isClickInsideMenu = navMenu.contains(e.target);
+            const isClickOnHamburger = hamburger.contains(e.target);
+
+            if (!isClickInsideMenu && !isClickOnHamburger && navMenu.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    } else {
+        console.error('Hamburger or NavMenu not found!');
+    }
+});
+
 // Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
