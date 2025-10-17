@@ -124,7 +124,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
               </div>
 
               <div className={logoClasses}>
-                <span className="font-bold">Rapid</span> <span className={accentClasses}>Research</span>
+                <span className="font-bold">SIMPLI</span><span className={accentClasses}>.FI</span>
               </div>
             </Link>
           </div>

@@ -5,25 +5,25 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
-  const [showAI, setShowAI] = useState(false);
-  const [showUserResearch, setShowUserResearch] = useState(false);
-  const [showForProducts, setShowForProducts] = useState(false);
+  const [showSimpli, setShowSimpli] = useState(false);
+  const [showDot, setShowDot] = useState(false);
+  const [showFi, setShowFi] = useState(false);
   const [showTagline, setShowTagline] = useState(false);
   const [showCTA, setShowCTA] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    // Sequential reveal animation: AI, User Research, for Products, tagline, CTA
-    const aiTimer = setTimeout(() => setShowAI(true), 300);
-    const userResearchTimer = setTimeout(() => setShowUserResearch(true), 900);
-    const forProductsTimer = setTimeout(() => setShowForProducts(true), 1500);
+    // Sequential reveal animation: SIMPLI, dot, FI, tagline, CTA
+    const simpliTimer = setTimeout(() => setShowSimpli(true), 300);
+    const dotTimer = setTimeout(() => setShowDot(true), 900);
+    const fiTimer = setTimeout(() => setShowFi(true), 1500);
     const taglineTimer = setTimeout(() => setShowTagline(true), 2100);
     const ctaTimer = setTimeout(() => setShowCTA(true), 2700);
 
     return () => {
-      clearTimeout(aiTimer);
-      clearTimeout(userResearchTimer);
-      clearTimeout(forProductsTimer);
+      clearTimeout(simpliTimer);
+      clearTimeout(dotTimer);
+      clearTimeout(fiTimer);
       clearTimeout(taglineTimer);
       clearTimeout(ctaTimer);
     };
@@ -113,36 +113,27 @@ const Hero = () => {
       <div className={`relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center transition-all duration-500 ${scrolled ? 'mt-0' : '-mt-12 sm:mt-0'}`}>
         <div className="flex flex-col items-center justify-center space-y-6 sm:space-y-10">
           <h1 className="font-bold tracking-tight text-white leading-[1.1] sm:leading-[1.15]">
-            <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl mb-2 sm:mb-4">
+            <div className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem]">
               <span
                 className={`transition-opacity duration-700 ${
-                  showUserResearch ? 'opacity-100' : 'opacity-0'
+                  showSimpli ? 'opacity-100' : 'opacity-0'
                 }`}
               >
-                User Research
-              </span>
-            </div>
-            <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
-              <span
-                className={`transition-opacity duration-700 ${
-                  showForProducts ? 'opacity-100' : 'opacity-0'
-                }`}
-              >
-                for{' '}
+                SIMPLI
               </span>
               <span
                 className={`transition-opacity duration-700 ${
-                  showAI ? 'opacity-100' : 'opacity-0'
+                  showDot ? 'opacity-100' : 'opacity-0'
                 }`}
               >
-                AI{' '}
+                .
               </span>
               <span
                 className={`transition-opacity duration-700 ${
-                  showForProducts ? 'opacity-100' : 'opacity-0'
+                  showFi ? 'opacity-100' : 'opacity-0'
                 }`}
               >
-                Products
+                FI
               </span>
             </div>
           </h1>
@@ -152,7 +143,7 @@ const Hero = () => {
               showTagline ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            From insight to impact in one week.
+            Product Research & Strategy for High-Stakes Decisions
           </p>
 
           <div

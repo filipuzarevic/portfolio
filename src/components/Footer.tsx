@@ -21,17 +21,17 @@ const Footer = () => {
               </div>
 
               <h2 className="text-xl font-bold">
-                Rapid <span className="text-agency-lightGray">Research</span>
+                SIMPLI<span className="text-agency-lightGray">.FI</span>
               </h2>
             </div>
             <p className="text-agency-lightGray max-w-md">
-              User research for AI products.
+              Product Research & Strategy for High-Stakes Decisions
             </p>
           </div>
         </div>
 
         <div className="border-t border-agency-slate/30 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-agency-gray text-sm">© {currentYear} RapidResearch. All rights reserved.</p>
+          <p className="text-agency-gray text-sm">© {currentYear} SIMPLI.FI. All rights reserved.</p>
           <div className="flex flex-wrap gap-6 mt-4 md:mt-0 justify-center">
             <Link to="/terms" onClick={handleNavigate} className="text-agency-gray hover:text-white transition-colors text-sm">Terms & Conditions</Link>
             <Link to="/privacy" onClick={handleNavigate} className="text-agency-gray hover:text-white transition-colors text-sm">Privacy Policy</Link>

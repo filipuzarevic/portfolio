@@ -21,7 +21,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 pb-20">
           <AnimatedElement animation="animate-fade-up">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-agency-navy mb-16 max-w-3xl">
-              Behind RapidResearch
+              Behind SIMPLI.FI
             </h1>
           </AnimatedElement>
 
@@ -30,7 +30,7 @@ const About = () => {
               <div className="overflow-hidden">
                 <img
                   src="/founder-photo.jpeg"
-                  alt="RapidResearch Founder"
+                  alt="SIMPLI.FI Founder"
                   className="w-full h-auto object-cover"
                 />
               </div>
@@ -44,7 +44,7 @@ const About = () => {
 
                 <div className="space-y-6 text-lg text-agency-gray leading-relaxed">
                   <p>
-                    RapidResearch was created to help AI startups move faster and smarter by understanding their users. Behind the scenes is a senior UX researcher with 15 years of experience turning complex behavior into business outcomes.
+                    SIMPLI.FI was created to help AI startups move faster and smarter by understanding their users. Behind the scenes is a senior UX researcher with 15 years of experience turning complex behavior into business outcomes.
                   </p>
 
                   <p>
@@ -72,7 +72,7 @@ const About = () => {
                 </p>
 
                 <p>
-                  Whether you're validating an idea or scaling a proven product, RapidResearch gives you expert research strategy without the agency fluff.
+                  Whether you're validating an idea or scaling a proven product, SIMPLI.FI gives you expert research strategy without the agency fluff.
                 </p>
               </div>
             </AnimatedElement>
