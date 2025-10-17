@@ -1,0 +1,23 @@
+{
+  "name": "simplifi-portfolio",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Simpli.fi - Product Research & Strategy Portfolio",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/filipuzarevic/portfolio.git"
+  },
+  "author": "Filip Uzarevic",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^7.1.10"
+  },
+  "dependencies": {
+    "gsap": "^3.13.0"
+  }
+}
