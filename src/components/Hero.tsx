@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
+  const [videoLoaded, setVideoLoaded] = useState(false);
   const [showSimpli, setShowSimpli] = useState(false);
   const [showDot, setShowDot] = useState(false);
   const [showFi, setShowFi] = useState(false);
@@ -13,6 +14,9 @@ const Hero = () => {
   const [showCTA, setShowCTA] = useState(false);
 
   useEffect(() => {
+    // Only start animations after video loads
+    if (!videoLoaded) return;
+
     // Sequential reveal animation: SIMPLI, dot, FI, tagline1, tagline2, CTA
     const simpliTimer = setTimeout(() => setShowSimpli(true), 300);
     const dotTimer = setTimeout(() => setShowDot(true), 900);
@@ -29,7 +33,7 @@ const Hero = () => {
       clearTimeout(tagline2Timer);
       clearTimeout(ctaTimer);
     };
-  }, []);
+  }, [videoLoaded]);
 
   return (
     <div className="relative bg-agency-navy min-h-screen flex items-center justify-center overflow-hidden">
@@ -41,6 +45,7 @@ const Hero = () => {
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
         style={{ objectFit: 'cover' }}
+        onLoadedData={() => setVideoLoaded(true)}
       >
         <source src="/vid_2.mp4" type="video/mp4" />
       </video>
