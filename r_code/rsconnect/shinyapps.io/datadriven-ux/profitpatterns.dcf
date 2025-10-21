@@ -1,0 +1,10 @@
+name: profitpatterns
+title:
+username: datadriven-ux
+account: datadriven-ux
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 15817909
+bundleId: 11064120
+url: https://datadriven-ux.shinyapps.io/profitpatterns/
+version: 1
