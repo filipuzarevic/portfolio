@@ -152,9 +152,8 @@ const Hero = () => {
             }`}
           >
             <Link to="/contact">
-              <button className="group inline-flex items-center bg-white text-agency-navy font-semibold text-base sm:text-lg md:text-xl px-8 sm:px-10 py-4 sm:py-5 border-2 border-white hover:bg-transparent hover:text-white transition-all duration-200">
-                Schedule Call
-                <ArrowRight className="ml-2 sm:ml-3 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
+              <button className="group bg-white text-agency-navy font-bold text-xl md:text-2xl px-12 py-6 border-2 border-white hover:bg-transparent hover:text-white hover:shadow-2xl hover:shadow-white/20 transition-all duration-300 hover:scale-105">
+                Let's connect
               </button>
             </Link>
           </div>

@@ -18,7 +18,7 @@ const CTA = () => {
     <section className="py-16 bg-white" id="cta">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedElement animation="animate-fade-up">
-          <div className="bg-gradient-to-br from-agency-blue to-agency-purple rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:shadow-2xl">
+          <div className="bg-agency-navy rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:shadow-2xl">
             <div className="p-8 md:p-12">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                 Ready to Accelerate Your AI Product Success?
@@ -42,9 +42,8 @@ const CTA = () => {
               </StaggeredChildren>
               
               <Link to="/contact">
-                <Button className="bg-white text-agency-blue hover:bg-gray-100 text-base px-6 py-6 h-auto font-semibold shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                  Schedule Consultation
-                  <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                <Button className="bg-white text-agency-navy hover:bg-gray-100 text-lg md:text-xl px-10 py-7 h-auto font-bold shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                  Let's connect
                 </Button>
               </Link>
             </div>

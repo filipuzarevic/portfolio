@@ -82,9 +82,8 @@ const About = () => {
                 </h3>
 
                 <Link to="/contact">
-                  <button className="group inline-flex items-center border-2 border-agency-navy text-agency-navy hover:bg-agency-navy hover:text-white font-semibold px-6 py-3 transition-all duration-200">
-                    Schedule Call
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <button className="bg-agency-navy text-white hover:bg-opacity-90 font-bold text-lg md:text-xl px-10 py-5 transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                    Let's connect
                   </button>
                 </Link>
               </div>
