@@ -4,7 +4,7 @@ import AnimatedElement from "@/components/ui/animated-element";
 
 const AboutSection = () => {
   return (
-    <section className="py-24 bg-white" id="about">
+    <section className="py-24 bg-pattern" id="about">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedElement animation="animate-fade-up">
           <h2 className="text-4xl md:text-5xl font-bold text-agency-navy mb-16">

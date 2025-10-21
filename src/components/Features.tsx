@@ -35,7 +35,7 @@ const Features = () => {
           </div>
         </AnimatedElement>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl">
           {features.map((feature, index) => (
             <AnimatedElement key={index} animation="animate-fade-up" delay={index * 100}>
               <div className="space-y-2">
@@ -45,16 +45,6 @@ const Features = () => {
             </AnimatedElement>
           ))}
         </div>
-
-        <AnimatedElement animation="animate-fade-up" delay={400}>
-          <div>
-            <Link to="/contact">
-              <button className="bg-agency-navy text-white hover:bg-opacity-90 font-bold text-lg md:text-xl px-10 py-5 transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                Let's connect
-              </button>
-            </Link>
-          </div>
-        </AnimatedElement>
       </div>
     </section>
   );
