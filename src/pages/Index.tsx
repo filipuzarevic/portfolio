@@ -7,6 +7,7 @@ import Services from "@/components/Services";
 import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
 import TrustedBy from "@/components/TrustedBy";
+import AboutSection from "@/components/AboutSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -31,6 +32,7 @@ const Index = () => {
       <Process />
       <Services />
       <Features />
+      <AboutSection />
       <TrustedBy />
       <Footer />
     </div>
