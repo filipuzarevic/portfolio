@@ -44,7 +44,7 @@ const About = () => {
 
                 <div className="space-y-6 text-lg text-agency-gray leading-relaxed">
                   <p>
-                    SIMPLI.FI was created to help AI startups move faster and smarter by understanding their users. Behind the scenes is a senior UX researcher with 15 years of experience turning complex behavior into business outcomes.
+                    SIMPLI.FI was created to help companies move faster and smarter by understanding their users. Behind the scenes is a senior UX researcher with 15 years of experience turning complex behavior into business outcomes.
                   </p>
 
                   <p>
@@ -52,49 +52,44 @@ const About = () => {
                   </p>
                 </div>
               </div>
-            </AnimatedElement>
-          </div>
-        </div>
 
-        {/* Second Section */}
-        <div className="bg-pattern-alt py-20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <AnimatedElement animation="animate-fade-up">
-              <h2 className="text-3xl md:text-4xl font-semibold text-agency-navy mb-8">
-                Why This Matters to You
-              </h2>
-            </AnimatedElement>
+              <div>
+                <h2 className="text-2xl md:text-3xl font-semibold text-agency-navy mb-6">
+                  Why This Matters to You
+                </h2>
 
-            <AnimatedElement animation="animate-fade-up" delay={100}>
-              <div className="space-y-6 text-lg text-agency-gray leading-relaxed">
-                <p>
-                  Startups rarely fail from lack of tech—they fail from building the wrong thing. My job is to make sure that doesn't happen to you.
-                </p>
+                <div className="space-y-6 text-lg text-agency-gray leading-relaxed">
+                  <p>
+                    Startups rarely fail from lack of tech—they fail from building the wrong thing. My job is to make sure that doesn't happen to you.
+                  </p>
 
-                <p>
-                  Whether you're validating an idea or scaling a proven product, SIMPLI.FI gives you expert research strategy without the agency fluff.
-                </p>
+                  <p>
+                    Whether you're validating an idea or scaling a proven product, SIMPLI.FI gives you expert research strategy without the agency fluff.
+                  </p>
+                </div>
               </div>
             </AnimatedElement>
           </div>
         </div>
 
         {/* CTA Section */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <AnimatedElement animation="animate-fade-up">
-            <div className="max-w-2xl">
-              <h3 className="text-3xl md:text-4xl font-semibold text-agency-navy mb-8">
-                Curious if we're a fit? Schedule a consultation and let's talk.
-              </h3>
+        <div className="bg-pattern-alt py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <AnimatedElement animation="animate-fade-up">
+              <div className="max-w-2xl">
+                <h3 className="text-3xl md:text-4xl font-semibold text-agency-navy mb-8">
+                  Curious if we're a fit? Schedule a consultation and let's talk.
+                </h3>
 
-              <Link to="/contact">
-                <button className="group inline-flex items-center border-2 border-agency-navy text-agency-navy hover:bg-agency-navy hover:text-white font-semibold px-6 py-3 transition-all duration-200">
-                  Schedule Call
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </button>
-              </Link>
-            </div>
-          </AnimatedElement>
+                <Link to="/contact">
+                  <button className="group inline-flex items-center border-2 border-agency-navy text-agency-navy hover:bg-agency-navy hover:text-white font-semibold px-6 py-3 transition-all duration-200">
+                    Schedule Call
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </button>
+                </Link>
+              </div>
+            </AnimatedElement>
+          </div>
         </div>
       </main>
 
