@@ -83,17 +83,19 @@ const Hero = () => {
 
           <div className="space-y-3 sm:space-y-4 max-w-4xl px-4">
             <p
-              className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white font-semibold leading-relaxed transition-opacity duration-700 ${
+              className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-900 font-semibold leading-relaxed transition-opacity duration-700 ${
                 showTagline1 ? 'opacity-100' : 'opacity-0'
               }`}
+              style={{ textShadow: '0 1px 2px rgba(255, 255, 255, 0.3)' }}
             >
               90% of startups fail from building the wrong thing.
             </p>
 
             <p
-              className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white font-semibold leading-relaxed transition-opacity duration-700 ${
+              className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-900 font-semibold leading-relaxed transition-opacity duration-700 ${
                 showTagline2 ? 'opacity-100' : 'opacity-0'
               }`}
+              style={{ textShadow: '0 1px 2px rgba(255, 255, 255, 0.3)' }}
             >
               Our job is to make sure that doesn't happen to you.
             </p>
