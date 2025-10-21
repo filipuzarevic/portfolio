@@ -25,15 +25,19 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
   useEffect(() => {
     let ticking = false;
 
+    // Check if mobile (max-width: 768px)
+    const isMobile = window.innerWidth < 768;
+
     const handleScroll = () => {
-      // For homepage, consider scrolled state after 50px of scroll
+      // For homepage on desktop, consider scrolled state after 50px of scroll
+      // For homepage on mobile, always show navbar (scrolled=true)
       // For other pages, consider scrolled immediately (they have light backgrounds)
-      const scrollThreshold = isHomePage ? 50 : 0;
+      const scrollThreshold = isHomePage && !isMobile ? 50 : 0;
       const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
 
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setScrolled(scrollY > scrollThreshold);
+          setScrolled(scrollY > scrollThreshold || (isHomePage && isMobile));
           ticking = false;
         });
         ticking = true;
@@ -44,11 +48,8 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('touchmove', handleScroll, { passive: true });
 
-    // For homepage, start with scrolled as false (header hidden)
-    // For other pages, initialize based on scroll position
-    if (!isHomePage) {
-      handleScroll();
-    }
+    // Initialize navbar visibility
+    handleScroll();
 
     // Check scroll position periodically as fallback for mobile browsers
     const intervalId = setInterval(handleScroll, 100);
