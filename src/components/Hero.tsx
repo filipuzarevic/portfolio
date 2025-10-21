@@ -11,7 +11,6 @@ const Hero = () => {
   const [showTagline1, setShowTagline1] = useState(false);
   const [showTagline2, setShowTagline2] = useState(false);
   const [showCTA, setShowCTA] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     // Sequential reveal animation: SIMPLI, dot, FI, tagline1, tagline2, CTA
@@ -29,36 +28,6 @@ const Hero = () => {
       clearTimeout(tagline1Timer);
       clearTimeout(tagline2Timer);
       clearTimeout(ctaTimer);
-    };
-  }, []);
-
-  useEffect(() => {
-    let ticking = false;
-
-    // Track scroll to reposition content when header appears
-    const handleScroll = () => {
-      const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setScrolled(scrollY > 50);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    // Use passive event listener for better mobile performance
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('touchmove', handleScroll, { passive: true });
-
-    // Check scroll position periodically as fallback for mobile browsers
-    const intervalId = setInterval(handleScroll, 100);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('touchmove', handleScroll);
-      clearInterval(intervalId);
     };
   }, []);
 
@@ -113,7 +82,7 @@ const Hero = () => {
         }}></div>
       </div>
 
-      <div className={`relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center transition-all duration-500 ${scrolled ? 'mt-0' : '-mt-12 sm:mt-0'}`}>
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
         <div className="flex flex-col items-center justify-center space-y-6 sm:space-y-10">
           <h1 className="font-bold tracking-tight text-white leading-[1.1] sm:leading-[1.15]">
             <div className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem]">
