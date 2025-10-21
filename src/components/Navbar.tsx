@@ -46,7 +46,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
   };
 
   // Always show the navbar on all pages
-  const navbarClasses = "fixed w-full bg-white/90 backdrop-blur-sm z-50 border-b border-agency-slate/10 transition-all duration-300";
+  const navbarClasses = "fixed top-0 left-0 right-0 w-full bg-white/90 backdrop-blur-sm z-50 border-b border-agency-slate/10";
 
   // Always use navy colors since navbar is always visible
   const logoClasses = "text-xl font-bold text-agency-navy transition-colors duration-300";
