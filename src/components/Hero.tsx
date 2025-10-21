@@ -33,54 +33,20 @@ const Hero = () => {
 
   return (
     <div className="relative bg-agency-navy min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated Nebula Background - Layer 1: Deep space clouds */}
-      <div
-        className="absolute inset-0 opacity-100"
-        style={{
-          background: 'radial-gradient(ellipse 150% 100% at 50% 40%, rgba(88, 50, 150, 0.4) 0%, rgba(88, 50, 150, 0.2) 30%, transparent 70%)',
-          animation: 'nebula-drift-1 20s ease-in-out infinite',
-          filter: 'blur(80px)',
-        }}
-      />
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ objectFit: 'cover' }}
+      >
+        <source src="/background_vid.mp4" type="video/mp4" />
+      </video>
 
-      {/* Animated Nebula Background - Layer 2: Cyan mist */}
-      <div
-        className="absolute inset-0 opacity-100"
-        style={{
-          background: 'radial-gradient(ellipse 120% 120% at 20% 60%, rgba(20, 184, 166, 0.35) 0%, rgba(20, 184, 166, 0.15) 30%, transparent 65%)',
-          animation: 'nebula-drift-2 18s ease-in-out infinite',
-          filter: 'blur(100px)',
-        }}
-      />
-
-      {/* Animated Nebula Background - Layer 3: Deep blue fog */}
-      <div
-        className="absolute inset-0 opacity-100"
-        style={{
-          background: 'radial-gradient(ellipse 130% 140% at 80% 50%, rgba(59, 130, 246, 0.3) 0%, rgba(59, 130, 246, 0.15) 35%, transparent 70%)',
-          animation: 'nebula-drift-3 22s ease-in-out infinite',
-          filter: 'blur(120px)',
-        }}
-      />
-
-      {/* Animated Nebula Background - Layer 4: Purple accent */}
-      <div
-        className="absolute inset-0 opacity-100"
-        style={{
-          background: 'radial-gradient(ellipse 100% 160% at 60% 70%, rgba(139, 92, 246, 0.25) 0%, rgba(139, 92, 246, 0.1) 30%, transparent 65%)',
-          animation: 'nebula-drift-4 25s ease-in-out infinite',
-          filter: 'blur(110px)',
-        }}
-      />
-
-      {/* Subtle grid pattern overlay */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)`,
-          backgroundSize: '100px 100px'
-        }}></div>
-      </div>
+      {/* Dark overlay to ensure text readability */}
+      <div className="absolute inset-0 bg-agency-navy/40"></div>
 
       <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
         <div className="flex flex-col items-center justify-center space-y-6 sm:space-y-10">
