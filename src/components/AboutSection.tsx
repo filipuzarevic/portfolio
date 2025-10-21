@@ -26,15 +26,11 @@ const AboutSection = () => {
           <AnimatedElement animation="animate-fade-up" delay={200} className="w-full lg:w-3/5">
             <div className="space-y-6 text-lg text-agency-gray leading-relaxed">
               <p>
-                SIMPLI.FI was created to help companies move faster and smarter by understanding their users. Behind the scenes is a senior UX researcher with 15 years of experience turning complex behavior into business outcomes.
+                SIMPLI.FI was created to help companies move faster and smarter by understanding their users. Behind the scenes is Filip, a senior UX researcher with 15 years of experience, a PhD in psychology, a track record in fast-paced tech, and a history of turning complex behavior into business outcomes. His work has contributed to measurable revenue growth and faster product-market fit by helping teams make better decisions, faster.
               </p>
 
               <p>
-                A PhD in psychology and a track record in fast-paced tech have enabled me to lead everything from 5-day sprints to strategic, multi-quarter studies. My work has contributed to measurable revenue growth and faster product-market fit—by helping teams make better decisions, faster.
-              </p>
-
-              <p>
-                Startups rarely fail from lack of tech—they fail from building the wrong thing. My job is to make sure that doesn't happen to you.
+                Startups rarely fail from lack of tech, they fail from building the wrong thing. Filip's job is to make sure that doesn't happen to you.
               </p>
             </div>
           </AnimatedElement>
