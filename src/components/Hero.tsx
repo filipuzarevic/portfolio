@@ -63,7 +63,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative bg-agency-navy min-h-screen flex items-center justify-center overflow-hidden">
+    <div className="relative bg-agency-navy min-h-[85vh] md:min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Nebula Background - Layer 1: Deep space clouds */}
       <div
         className="absolute inset-0 opacity-100"

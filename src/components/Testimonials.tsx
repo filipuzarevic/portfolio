@@ -12,36 +12,31 @@ const Testimonials = () => {
   const [startCounters, setStartCounters] = useState(false);
 
   useEffect(() => {
-    const checkInitialViewport = () => {
-      if (sectionRef.current) {
+    // Always show the section immediately
+    setShowSection(true);
+
+    const handleScroll = () => {
+      if (sectionRef.current && !startCounters) {
         const rect = sectionRef.current.getBoundingClientRect();
         const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-        // Check if any part of the section is visible in the viewport
-        const inView = rect.top < viewportHeight && rect.bottom > 0;
-        setIsInViewport(inView);
+        // Start counters when section is 20% visible
+        const isVisible = rect.top < viewportHeight * 0.8;
 
-        // If in viewport, wait for hero animation to complete before showing
-        if (inView) {
-          // Show section and start counters at the same time (after hero animation)
-          const timer = setTimeout(() => {
-            setShowSection(true);
-            setStartCounters(true);
-          }, 3000);
-          return () => clearTimeout(timer);
-        } else {
-          // If not in viewport, show immediately (will animate on scroll)
-          setShowSection(true);
+        if (isVisible) {
           setStartCounters(true);
         }
       }
     };
 
-    // Check on mount and after a short delay to ensure layout is settled
-    checkInitialViewport();
-    const timer = setTimeout(checkInitialViewport, 100);
+    // Check on scroll
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Also check on mount in case already scrolled
+    handleScroll();
 
-    return () => clearTimeout(timer);
-  }, []);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [startCounters]);
   const resultMetrics = [
     {
       metric: "+14%",
