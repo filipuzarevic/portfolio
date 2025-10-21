@@ -39,7 +39,7 @@ const Testimonials = () => {
   }, [startCounters]);
   const resultMetrics = [
     {
-      metric: "+14%",
+      metric: "+12%",
       title: "Revenue Lift",
       description: "From optimized product bundling"
     },
