@@ -29,7 +29,11 @@ const AboutSection = () => {
               </p>
 
               <p>
-                With a PhD in psychology and a track record in fast-paced tech, I've led everything from 5-day sprints to strategic, multi-quarter studies. My work has contributed to measurable revenue growth and faster product-market fit—by helping teams make better decisions, faster.
+                A PhD in psychology and a track record in fast-paced tech have enabled me to lead everything from 5-day sprints to strategic, multi-quarter studies. My work has contributed to measurable revenue growth and faster product-market fit—by helping teams make better decisions, faster.
+              </p>
+
+              <p>
+                Startups rarely fail from lack of tech—they fail from building the wrong thing. My job is to make sure that doesn't happen to you.
               </p>
             </div>
           </AnimatedElement>

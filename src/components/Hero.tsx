@@ -8,23 +8,26 @@ const Hero = () => {
   const [showSimpli, setShowSimpli] = useState(false);
   const [showDot, setShowDot] = useState(false);
   const [showFi, setShowFi] = useState(false);
-  const [showTagline, setShowTagline] = useState(false);
+  const [showTagline1, setShowTagline1] = useState(false);
+  const [showTagline2, setShowTagline2] = useState(false);
   const [showCTA, setShowCTA] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    // Sequential reveal animation: SIMPLI, dot, FI, tagline, CTA
+    // Sequential reveal animation: SIMPLI, dot, FI, tagline1, tagline2, CTA
     const simpliTimer = setTimeout(() => setShowSimpli(true), 300);
     const dotTimer = setTimeout(() => setShowDot(true), 900);
     const fiTimer = setTimeout(() => setShowFi(true), 1500);
-    const taglineTimer = setTimeout(() => setShowTagline(true), 2100);
-    const ctaTimer = setTimeout(() => setShowCTA(true), 2700);
+    const tagline1Timer = setTimeout(() => setShowTagline1(true), 2100);
+    const tagline2Timer = setTimeout(() => setShowTagline2(true), 2700);
+    const ctaTimer = setTimeout(() => setShowCTA(true), 3300);
 
     return () => {
       clearTimeout(simpliTimer);
       clearTimeout(dotTimer);
       clearTimeout(fiTimer);
-      clearTimeout(taglineTimer);
+      clearTimeout(tagline1Timer);
+      clearTimeout(tagline2Timer);
       clearTimeout(ctaTimer);
     };
   }, []);
@@ -138,13 +141,23 @@ const Hero = () => {
             </div>
           </h1>
 
-          <p
-            className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl text-agency-lightGray leading-relaxed max-w-4xl px-4 transition-opacity duration-700 ${
-              showTagline ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            Product Research & Strategy for High-Stakes Decisions
-          </p>
+          <div className="space-y-3 sm:space-y-4 max-w-4xl px-4">
+            <p
+              className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl text-agency-lightGray leading-relaxed transition-opacity duration-700 ${
+                showTagline1 ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              90% of startups fail from building the wrong thing.
+            </p>
+
+            <p
+              className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl text-agency-lightGray leading-relaxed transition-opacity duration-700 ${
+                showTagline2 ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              Our job is to make sure that doesn't happen to you.
+            </p>
+          </div>
 
           <div
             className={`pt-2 sm:pt-4 flex items-center justify-center transition-opacity duration-700 ${
