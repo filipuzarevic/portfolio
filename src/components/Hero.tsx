@@ -42,7 +42,7 @@ const Hero = () => {
         className="absolute inset-0 w-full h-full object-cover"
         style={{ objectFit: 'cover' }}
       >
-        <source src="/background_vid.mp4" type="video/mp4" />
+        <source src="/vid_2.mp4" type="video/mp4" />
       </video>
 
       {/* Dark overlay to ensure text readability */}
