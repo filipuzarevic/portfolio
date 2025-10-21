@@ -83,7 +83,7 @@ const Hero = () => {
 
           <div className="space-y-3 sm:space-y-4 max-w-4xl px-4">
             <p
-              className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl text-agency-lightGray leading-relaxed transition-opacity duration-700 ${
+              className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white font-semibold leading-relaxed transition-opacity duration-700 ${
                 showTagline1 ? 'opacity-100' : 'opacity-0'
               }`}
             >
@@ -91,7 +91,7 @@ const Hero = () => {
             </p>
 
             <p
-              className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl text-agency-lightGray leading-relaxed transition-opacity duration-700 ${
+              className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white font-semibold leading-relaxed transition-opacity duration-700 ${
                 showTagline2 ? 'opacity-100' : 'opacity-0'
               }`}
             >
