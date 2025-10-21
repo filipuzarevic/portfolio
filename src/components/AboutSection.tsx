@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import AnimatedElement from "@/components/ui/animated-element";
 
 const AboutSection = () => {
@@ -38,6 +39,14 @@ const AboutSection = () => {
             </div>
           </AnimatedElement>
         </div>
+
+        <AnimatedElement animation="animate-fade-up" delay={300} className="mt-12 flex justify-center lg:justify-start">
+          <Link to="/contact">
+            <button className="bg-agency-navy text-white hover:bg-opacity-90 font-bold text-lg md:text-xl px-10 py-5 transition-all duration-300 hover:scale-105 hover:shadow-xl">
+              Let's connect
+            </button>
+          </Link>
+        </AnimatedElement>
       </div>
     </section>
   );
