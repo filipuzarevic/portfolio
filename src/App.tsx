@@ -12,6 +12,7 @@ import TermsAndConditions from "./pages/TermsAndConditions";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CookiesPolicy from "./pages/CookiesPolicy";
 import TicTacToe from "./pages/TicTacToe";
+import ProfitPatterns from "./pages/ProfitPatterns";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/cookies" element={<CookiesPolicy />} />
           <Route path="/tictactoe" element={<TicTacToe />} />
+          <Route path="/profitpatterns" element={<ProfitPatterns />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
