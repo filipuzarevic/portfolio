@@ -1,7 +1,4 @@
-
-import React, { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
@@ -14,26 +11,24 @@ const Hero = () => {
   const [showTagline2, setShowTagline2] = useState(false);
   const [showCTA, setShowCTA] = useState(false);
 
+  const handleVideoLoaded = useCallback(() => setVideoLoaded(true), []);
+  const handleVideoPlaying = useCallback(() => setVideoPlaying(true), []);
+
   useEffect(() => {
     // Only start animations after video is loaded AND playing
     if (!videoLoaded || !videoPlaying) return;
 
     // Sequential reveal animation: SIMPLI, dot, FI, tagline1, tagline2, CTA
-    const simpliTimer = setTimeout(() => setShowSimpli(true), 300);
-    const dotTimer = setTimeout(() => setShowDot(true), 900);
-    const fiTimer = setTimeout(() => setShowFi(true), 1500);
-    const tagline1Timer = setTimeout(() => setShowTagline1(true), 2100);
-    const tagline2Timer = setTimeout(() => setShowTagline2(true), 2700);
-    const ctaTimer = setTimeout(() => setShowCTA(true), 3300);
+    const timers = [
+      setTimeout(() => setShowSimpli(true), 300),
+      setTimeout(() => setShowDot(true), 900),
+      setTimeout(() => setShowFi(true), 1500),
+      setTimeout(() => setShowTagline1(true), 2100),
+      setTimeout(() => setShowTagline2(true), 2700),
+      setTimeout(() => setShowCTA(true), 3300)
+    ];
 
-    return () => {
-      clearTimeout(simpliTimer);
-      clearTimeout(dotTimer);
-      clearTimeout(fiTimer);
-      clearTimeout(tagline1Timer);
-      clearTimeout(tagline2Timer);
-      clearTimeout(ctaTimer);
-    };
+    return () => timers.forEach(clearTimeout);
   }, [videoLoaded, videoPlaying]);
 
   return (
@@ -46,9 +41,8 @@ const Hero = () => {
         playsInline
         preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ objectFit: 'cover' }}
-        onLoadedData={() => setVideoLoaded(true)}
-        onPlaying={() => setVideoPlaying(true)}
+        onLoadedData={handleVideoLoaded}
+        onPlaying={handleVideoPlaying}
       >
         <source src="/vid_2.mp4" type="video/mp4" />
       </video>
@@ -119,4 +113,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default React.memo(Hero);

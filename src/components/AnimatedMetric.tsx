@@ -20,4 +20,4 @@ const AnimatedMetric: React.FC<AnimatedMetricProps> = ({ metric, initialDelay = 
   );
 };
 
-export default AnimatedMetric;
+export default React.memo(AnimatedMetric);

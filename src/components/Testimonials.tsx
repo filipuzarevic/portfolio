@@ -7,34 +7,28 @@ import AnimatedMetric from "@/components/AnimatedMetric";
 
 const Testimonials = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const [isInViewport, setIsInViewport] = useState(false);
-  const [showSection, setShowSection] = useState(false);
   const [startCounters, setStartCounters] = useState(false);
 
   useEffect(() => {
-    // Always show the section immediately
-    setShowSection(true);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !startCounters) {
+            setStartCounters(true);
+          }
+        });
+      },
+      { threshold: 0.2, rootMargin: '0px' }
+    );
 
-    const handleScroll = () => {
-      if (sectionRef.current && !startCounters) {
-        const rect = sectionRef.current.getBoundingClientRect();
-        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-        // Start counters when section is 20% visible
-        const isVisible = rect.top < viewportHeight * 0.8;
-
-        if (isVisible) {
-          setStartCounters(true);
-        }
-      }
-    };
-
-    // Check on scroll
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    // Also check on mount in case already scrolled
-    handleScroll();
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
     };
   }, [startCounters]);
   const resultMetrics = [
@@ -59,9 +53,7 @@ const Testimonials = () => {
   return (
     <section
       ref={sectionRef}
-      className={`py-24 bg-pattern transition-opacity duration-700 ${
-        showSection ? 'opacity-100' : 'opacity-0'
-      }`}
+      className="py-24 bg-pattern"
       id="testimonials"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -94,4 +86,4 @@ const Testimonials = () => {
   );
 };
 
-export default Testimonials;
+export default React.memo(Testimonials);
