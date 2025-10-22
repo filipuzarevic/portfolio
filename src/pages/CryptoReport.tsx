@@ -47,10 +47,10 @@ const CryptoReport = () => {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
               <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-                Crypto Market Intelligence
+                Solana Ecosystem Intelligence
               </h1>
               <p className="text-gray-600">
-                AI-powered analysis of crypto Twitter sentiment and market signals
+                AI-powered analysis for wallet developers, designers, and product owners
               </p>
             </div>
             <div className="flex gap-2">
@@ -122,25 +122,25 @@ const CryptoReport = () => {
         <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
           <Card className="p-6 bg-white border-gray-200 shadow-md hover:shadow-lg transition-shadow">
             <TrendingUp className="w-8 h-8 text-green-600 mb-3" />
-            <h3 className="text-gray-900 font-bold mb-2 text-lg">AI-Powered Analysis</h3>
+            <h3 className="text-gray-900 font-bold mb-2 text-lg">Facts-Only Analysis</h3>
             <p className="text-gray-600 text-sm">
-              Powered by Claude AI to extract insights from influential crypto Twitter accounts
+              Powered by Claude AI to extract only factual information from Solana ecosystem Twitter sources
             </p>
           </Card>
 
           <Card className="p-6 bg-white border-gray-200 shadow-md hover:shadow-lg transition-shadow">
             <RefreshCw className="w-8 h-8 text-blue-600 mb-3" />
-            <h3 className="text-gray-900 font-bold mb-2 text-lg">Real-Time Data</h3>
+            <h3 className="text-gray-900 font-bold mb-2 text-lg">Solana Ecosystem</h3>
             <p className="text-gray-600 text-sm">
-              Monitoring 8 key accounts including @vitalikbuterin, @coinbase, and @whale_alert
+              Monitoring 20 key accounts including @solana, @phantom, @JupiterExchange, @metaplex, and more
             </p>
           </Card>
 
           <Card className="p-6 bg-white border-gray-200 shadow-md hover:shadow-lg transition-shadow">
             <TrendingDown className="w-8 h-8 text-orange-600 mb-3" />
-            <h3 className="text-gray-900 font-bold mb-2 text-lg">Sentiment Tracking</h3>
+            <h3 className="text-gray-900 font-bold mb-2 text-lg">For Wallet Teams</h3>
             <p className="text-gray-600 text-sm">
-              Track market sentiment, trending topics, and important announcements
+              Technical developments, protocol updates, and partnership announcements relevant to wallet developers
             </p>
           </Card>
         </div>
