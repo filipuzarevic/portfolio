@@ -39,16 +39,16 @@ const CryptoReport = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+    <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="border-b border-slate-700 bg-slate-900/50 backdrop-blur-sm sticky top-0 z-10">
+      <div className="border-b border-gray-200 bg-white shadow-sm sticky top-0 z-10">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
                 Crypto Market Intelligence
               </h1>
-              <p className="text-slate-400">
+              <p className="text-gray-600">
                 AI-powered analysis of crypto Twitter sentiment and market signals
               </p>
             </div>
@@ -56,7 +56,7 @@ const CryptoReport = () => {
               <Button
                 onClick={fetchReport}
                 variant="outline"
-                className="bg-slate-800 hover:bg-slate-700 text-white border-slate-600"
+                className="bg-white hover:bg-gray-50 text-gray-900 border-gray-300"
                 disabled={loading}
               >
                 <RefreshCw className={`w-4 h-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
@@ -72,7 +72,7 @@ const CryptoReport = () => {
             </div>
           </div>
           {lastUpdated && (
-            <p className="text-sm text-slate-500 mt-2">
+            <p className="text-sm text-gray-500 mt-2">
               Last updated: {lastUpdated}
             </p>
           )}
@@ -82,34 +82,34 @@ const CryptoReport = () => {
       {/* Content */}
       <div className="container mx-auto px-4 py-8">
         {loading ? (
-          <Card className="p-8 bg-slate-800/50 border-slate-700">
+          <Card className="p-8 bg-white border-gray-200 shadow-lg">
             <div className="flex flex-col items-center justify-center py-12">
-              <RefreshCw className="w-12 h-12 text-blue-500 animate-spin mb-4" />
-              <p className="text-slate-300 text-lg">Loading crypto intelligence report...</p>
+              <RefreshCw className="w-12 h-12 text-blue-600 animate-spin mb-4" />
+              <p className="text-gray-700 text-lg">Loading crypto intelligence report...</p>
             </div>
           </Card>
         ) : (
-          <Card className="p-8 bg-slate-800/50 border-slate-700">
-            <div className="prose prose-invert prose-slate max-w-none
-              prose-headings:text-white
-              prose-h1:text-4xl prose-h1:font-bold prose-h1:mb-4
-              prose-h2:text-2xl prose-h2:font-semibold prose-h2:mt-8 prose-h2:mb-4 prose-h2:text-blue-400
-              prose-h3:text-xl prose-h3:font-medium prose-h3:mt-6 prose-h3:mb-3 prose-h3:text-blue-300
-              prose-p:text-slate-300 prose-p:leading-relaxed
-              prose-a:text-blue-400 prose-a:no-underline hover:prose-a:text-blue-300
-              prose-strong:text-white prose-strong:font-semibold
-              prose-ul:text-slate-300
-              prose-ol:text-slate-300
-              prose-li:my-1
-              prose-table:border-slate-700
-              prose-thead:border-slate-600
-              prose-th:text-left prose-th:py-3 prose-th:px-4 prose-th:bg-slate-700/50 prose-th:text-white
-              prose-td:py-2 prose-td:px-4 prose-td:border-slate-700 prose-td:text-slate-300
-              prose-tr:border-slate-700
-              prose-blockquote:border-l-blue-500 prose-blockquote:text-slate-300
-              prose-code:text-blue-400 prose-code:bg-slate-900 prose-code:px-1 prose-code:rounded
-              prose-pre:bg-slate-900 prose-pre:border prose-pre:border-slate-700
-              prose-hr:border-slate-700
+          <Card className="p-8 md:p-12 bg-white border-gray-200 shadow-lg">
+            <div className="prose prose-lg max-w-none
+              prose-headings:font-bold prose-headings:text-gray-900
+              prose-h1:text-5xl prose-h1:mb-6 prose-h1:border-b prose-h1:border-gray-200 prose-h1:pb-4
+              prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:text-blue-600 prose-h2:border-b prose-h2:border-blue-100 prose-h2:pb-3
+              prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-gray-800
+              prose-p:text-gray-700 prose-p:leading-relaxed prose-p:text-lg prose-p:mb-4
+              prose-a:text-blue-600 prose-a:underline hover:prose-a:text-blue-700
+              prose-strong:text-gray-900 prose-strong:font-bold
+              prose-ul:text-gray-700 prose-ul:my-4
+              prose-ol:text-gray-700 prose-ol:my-4
+              prose-li:my-2 prose-li:text-lg
+              prose-table:border-collapse prose-table:w-full prose-table:my-8
+              prose-thead:bg-blue-50 prose-thead:border-b-2 prose-thead:border-blue-200
+              prose-th:text-left prose-th:py-4 prose-th:px-6 prose-th:font-bold prose-th:text-gray-900 prose-th:text-base
+              prose-td:py-3 prose-td:px-6 prose-td:border-b prose-td:border-gray-200 prose-td:text-gray-700
+              prose-tr:hover:bg-gray-50
+              prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:pl-6 prose-blockquote:text-gray-700 prose-blockquote:italic
+              prose-code:text-blue-700 prose-code:bg-blue-50 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm
+              prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto
+              prose-hr:border-gray-300 prose-hr:my-8
             ">
               <ReactMarkdown>{markdownContent}</ReactMarkdown>
             </div>
@@ -118,26 +118,26 @@ const CryptoReport = () => {
 
         {/* Info Footer */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-          <Card className="p-6 bg-slate-800/30 border-slate-700">
-            <TrendingUp className="w-8 h-8 text-green-500 mb-3" />
-            <h3 className="text-white font-semibold mb-2">AI-Powered Analysis</h3>
-            <p className="text-slate-400 text-sm">
+          <Card className="p-6 bg-white border-gray-200 shadow-md hover:shadow-lg transition-shadow">
+            <TrendingUp className="w-8 h-8 text-green-600 mb-3" />
+            <h3 className="text-gray-900 font-bold mb-2 text-lg">AI-Powered Analysis</h3>
+            <p className="text-gray-600 text-sm">
               Powered by Claude AI to extract insights from influential crypto Twitter accounts
             </p>
           </Card>
 
-          <Card className="p-6 bg-slate-800/30 border-slate-700">
-            <RefreshCw className="w-8 h-8 text-blue-500 mb-3" />
-            <h3 className="text-white font-semibold mb-2">Real-Time Data</h3>
-            <p className="text-slate-400 text-sm">
+          <Card className="p-6 bg-white border-gray-200 shadow-md hover:shadow-lg transition-shadow">
+            <RefreshCw className="w-8 h-8 text-blue-600 mb-3" />
+            <h3 className="text-gray-900 font-bold mb-2 text-lg">Real-Time Data</h3>
+            <p className="text-gray-600 text-sm">
               Monitoring 8 key accounts including @vitalikbuterin, @coinbase, and @whale_alert
             </p>
           </Card>
 
-          <Card className="p-6 bg-slate-800/30 border-slate-700">
-            <TrendingDown className="w-8 h-8 text-orange-500 mb-3" />
-            <h3 className="text-white font-semibold mb-2">Sentiment Tracking</h3>
-            <p className="text-slate-400 text-sm">
+          <Card className="p-6 bg-white border-gray-200 shadow-md hover:shadow-lg transition-shadow">
+            <TrendingDown className="w-8 h-8 text-orange-600 mb-3" />
+            <h3 className="text-gray-900 font-bold mb-2 text-lg">Sentiment Tracking</h3>
+            <p className="text-gray-600 text-sm">
               Track market sentiment, trending topics, and important announcements
             </p>
           </Card>
@@ -148,7 +148,7 @@ const CryptoReport = () => {
           <Button
             onClick={() => window.location.href = '/'}
             variant="ghost"
-            className="text-slate-400 hover:text-white"
+            className="text-gray-600 hover:text-gray-900 hover:bg-gray-100"
           >
             <ArrowRight className="w-4 h-4 mr-2 rotate-180" />
             Back to Home
