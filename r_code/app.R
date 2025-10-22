@@ -122,23 +122,24 @@ binary_outcome_table <- function(df, iv, dv, output1 = 0) {
 single_group_chart <- function(tabby, outcome){
   iv <- tabby[["iv"]][1]
   dv <- tabby[["dv"]][1]
-  gn <- ggplot(na.omit(tabby), 
+  gn <- ggplot(na.omit(tabby),
                aes(x = krs, y = outc))+
-    geom_col(fill="#1EA891", color = "#3A3B3C", alpha = na.omit(tabby)[["number_x"]])+
-    geom_errorbar(aes(ymin = low, ymax = high), position = position_dodge(0.9), width = 0.1, color="black")+
-    geom_bar_text(aes(label = values), color = "black", vjust = 1.5)+
+    geom_col(fill="#3B82F6", color = "#0F172A", alpha = na.omit(tabby)[["number_x"]])+
+    geom_errorbar(aes(ymin = low, ymax = high), position = position_dodge(0.9), width = 0.1, color="#0F172A")+
+    geom_bar_text(aes(label = values), color = "#0F172A", vjust = 1.5)+
     labs(y= paste(dv,outcome), x = iv) +
-    geom_hline(yintercept=mean(tabby[["overall_mean"]], na.rm=T), linetype="dashed", color = "red",lwd=1.5)+
+    geom_hline(yintercept=mean(tabby[["overall_mean"]], na.rm=T), linetype="dashed", color = "#3B82F6",lwd=1.5)+
     theme(
       # Hide panel borders and remove grid lines
       panel.border = element_blank(),
       panel.grid.major = element_blank(),
       panel.grid.minor = element_blank(),
       # Change axis line
-      axis.line = element_line(colour = "black")
+      axis.line = element_line(colour = "#334155"),
+      text = element_text(family = "sans", color = "#0F172A")
     )+
     theme_classic()
-  
+
   return(gn)
 }
 
@@ -186,33 +187,34 @@ moderated_chart_cat_mod <- function(tabby, outcome){
   iv <- tabby[["iv"]][1]
   dv <- tabby[["dv"]][1]
   mod <- tabby[["mod"]][1]
-  
-  max_val <- max(tabby[["high"]]) 
+
+  max_val <- max(tabby[["high"]])
   new_max <- max_val + (0.05 * max_val)
-  
-  
-  dodge <- position_dodge(width = 0.8) 
-  
-  
-  gn <- ggplot(na.omit(tabby), 
+
+
+  dodge <- position_dodge(width = 0.8)
+
+
+  gn <- ggplot(na.omit(tabby),
                aes(x = !!sym(iv), y = outc, fill = !!sym(mod), group = !!sym(mod)))+
     geom_col(position = dodge, width = 0.7) +
-    geom_errorbar(aes(ymin = low, ymax = high), 
-                  position = dodge, width = 0.25, color = "black") +
-    geom_text(aes(label = values), position = position_dodge(width = 0.8), color = "black", vjust = 1.5) + 
+    geom_errorbar(aes(ymin = low, ymax = high),
+                  position = dodge, width = 0.25, color = "#0F172A") +
+    geom_text(aes(label = values), position = position_dodge(width = 0.8), color = "#0F172A", vjust = 1.5) +
     coord_cartesian(ylim = c(0, new_max)) +
     labs(y= paste(dv,outcome), x = iv) +
-    geom_hline(yintercept=mean(tabby[["overall_mean"]], na.rm=T), linetype="dashed", color = "red",lwd=1.5)+
+    geom_hline(yintercept=mean(tabby[["overall_mean"]], na.rm=T), linetype="dashed", color = "#3B82F6",lwd=1.5)+
     theme(
       # Hide panel borders and remove grid lines
       panel.border = element_blank(),
       panel.grid.major = element_blank(),
       panel.grid.minor = element_blank(),
       # Change axis line
-      axis.line = element_line(colour = "black")
+      axis.line = element_line(colour = "#334155"),
+      text = element_text(family = "sans", color = "#0F172A")
     )+
     theme_classic()
-  
+
   return(gn)
 }
 
@@ -296,28 +298,29 @@ moderated_chart_cont_mod <- function(tabby, outcome){
   iv <- tabby[["iv"]][1]
   dv <- tabby[["dv"]][1]
   mod <- tabby[["mod"]][1]
-  
-  
+
+
   max_val <- max(tabby[["high"]])
   new_max <- max_val + (0.05 * max_val)
-  
-  gn <- ggplot(na.omit(tabby), 
+
+  gn <- ggplot(na.omit(tabby),
                aes(x = !!sym(iv), y = outc, colour = !!sym(mod), group = !!sym(mod))) +
     geom_point() + geom_line(size = 1) +
-    geom_ribbon(aes(ymin = low, ymax = high, fill = !!sym(mod)), 
+    geom_ribbon(aes(ymin = low, ymax = high, fill = !!sym(mod)),
                 linetype = 2, alpha = 0.1) +
     labs(y= paste(dv,outcome), x = iv) +
-    geom_hline(yintercept=mean(tabby[["overall_mean"]], na.rm=T), linetype="dashed", color = "red",lwd=1.5)+
+    geom_hline(yintercept=mean(tabby[["overall_mean"]], na.rm=T), linetype="dashed", color = "#3B82F6",lwd=1.5)+
     theme(
       # Hide panel borders and remove grid lines
       panel.border = element_blank(),
       panel.grid.major = element_blank(),
       panel.grid.minor = element_blank(),
       # Change axis line
-      axis.line = element_line(colour = "black")
+      axis.line = element_line(colour = "#334155"),
+      text = element_text(family = "sans", color = "#0F172A")
     )+
     theme_classic()
-  
+
   return(gn)
 }
 
@@ -329,6 +332,145 @@ moderated_chart_cont_mod <- function(tabby, outcome){
 
 #Shiny graphs
 ui <- fluidPage(
+  tags$head(
+    tags$style(HTML("
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+      body {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        background-color: #F8FAFC;
+        color: #0F172A;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .container-fluid {
+        background-color: #F8FAFC;
+      }
+
+      /* Title styling */
+      h4 {
+        color: #0F172A;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        padding: 1rem 0;
+        border-bottom: 2px solid #E2E8F0;
+      }
+
+      /* Sidebar styling */
+      .well {
+        background-color: #FFFFFF;
+        border: 1px solid #E2E8F0;
+        border-radius: 0.5rem;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      /* Button styling */
+      .btn-default, #btn_run_analysis, #show_help {
+        background-color: #0F172A !important;
+        color: #FFFFFF !important;
+        border: 2px solid #0F172A !important;
+        font-weight: 600;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        transition: all 0.2s;
+      }
+
+      .btn-default:hover, #btn_run_analysis:hover, #show_help:hover {
+        background-color: #FFFFFF !important;
+        color: #0F172A !important;
+        border-color: #0F172A !important;
+      }
+
+      /* Download button */
+      #downloadTable {
+        background-color: #3B82F6 !important;
+        border-color: #3B82F6 !important;
+        color: #FFFFFF !important;
+      }
+
+      #downloadTable:hover {
+        background-color: #2563EB !important;
+        border-color: #2563EB !important;
+      }
+
+      /* Radio buttons and inputs */
+      .radio label, .checkbox label {
+        color: #334155;
+        font-weight: 500;
+      }
+
+      /* Tab styling */
+      .nav-tabs > li > a {
+        color: #64748B;
+        border: none;
+        font-weight: 500;
+      }
+
+      .nav-tabs > li.active > a {
+        color: #0F172A;
+        background-color: #FFFFFF;
+        border: none;
+        border-bottom: 3px solid #0F172A;
+      }
+
+      /* Table styling */
+      table {
+        color: #334155;
+        border-color: #E2E8F0;
+      }
+
+      thead {
+        background-color: #F8FAFC;
+        color: #0F172A;
+        font-weight: 600;
+      }
+
+      /* Dropdown styling */
+      .selectize-input {
+        border: 1px solid #E2E8F0;
+        border-radius: 0.25rem;
+        color: #334155;
+      }
+
+      .selectize-input:focus {
+        border-color: #3B82F6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      }
+
+      /* Panel styling */
+      .panel {
+        border: 1px solid #E2E8F0;
+        border-radius: 0.5rem;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      .panel-default > .panel-heading {
+        background-color: #F8FAFC;
+        color: #0F172A;
+        border-color: #E2E8F0;
+        font-weight: 600;
+      }
+
+      /* Horizontal rule */
+      hr {
+        border-color: #E2E8F0;
+      }
+
+      /* Labels */
+      label {
+        color: #334155;
+        font-weight: 500;
+        letter-spacing: -0.011em;
+      }
+
+      /* Control label styling */
+      .control-label {
+        color: #0F172A;
+        font-weight: 600;
+      }
+    "))
+  ),
   title = "ProfitPatterns",  # This sets the browser tab title
   titlePanel(h4('ProfitPatterns App', align = "center")),
   sidebarLayout(
@@ -532,17 +674,17 @@ server <- function (input, output) {
   observeEvent(input$show_help, {
     showModal(modalDialog(
       title = "Info",
-      HTML("<div>
-    <h3>Welcome to ProfitPatterns</h3>
-    <p>A specialized app designed to unravel complex relationships between customer parameters and key business outcomes. This tool empowers users to dive deep into data, uncovering crucial insights that drive business strategy.</p>
-    <h4>Key Features:</h4>
-    <ul>
+      HTML("<div style='font-family: Inter, sans-serif; color: #334155;'>
+    <h3 style='color: #0F172A; font-weight: 700;'>Welcome to ProfitPatterns</h3>
+    <p style='line-height: 1.6;'>A specialized app designed to unravel complex relationships between customer parameters and key business outcomes. This tool empowers users to dive deep into data, uncovering crucial insights that drive business strategy.</p>
+    <h4 style='color: #0F172A; font-weight: 600;'>Key Features:</h4>
+    <ul style='line-height: 1.8;'>
         <li><strong>Dynamic Analysis</strong>: Explore how different customer characteristics relate to outcomes. Shading of the columns indicates the segment size.</li>
         <li><strong>Subgroup Exploration</strong>: Utilize filters and moderators to dissect data across various subgroups, offering tailored insights.</li>
 
     </ul>
-    <p>This version serves as a showcase of what the app can do, utilizing open-source data for demonstration. The data can be accessed <a href='https://www.kaggle.com/datasets/vishakhdapat/customer-segmentation-clustering?resource=download' target='_blank'>here</a>.</p>
-    <p>Read more about me <a href='https://www.simpli-fi.me/about' target='_blank'>here</a>.</p>
+    <p style='line-height: 1.6;'>This version serves as a showcase of what the app can do, utilizing open-source data for demonstration. The data can be accessed <a href='https://www.kaggle.com/datasets/vishakhdapat/customer-segmentation-clustering?resource=download' target='_blank' style='color: #3B82F6; text-decoration: none;'>here</a>.</p>
+    <p style='line-height: 1.6;'>Read more about me <a href='https://www.simpli-fi.me/about' target='_blank' style='color: #3B82F6; text-decoration: none;'>here</a>.</p>
 </div>"),
       easyClose = TRUE,
       footer = NULL

@@ -5,6 +5,6 @@ account: datadriven-ux
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 15817909
-bundleId: 11064120
+bundleId: 11068876
 url: https://datadriven-ux.shinyapps.io/profitpatterns/
 version: 1
