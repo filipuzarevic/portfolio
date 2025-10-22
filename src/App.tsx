@@ -15,6 +15,7 @@ const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const CookiesPolicy = lazy(() => import("./pages/CookiesPolicy"));
 const TicTacToe = lazy(() => import("./pages/TicTacToe"));
 const ProfitPatterns = lazy(() => import("./pages/ProfitPatterns"));
+const CryptoReport = lazy(() => import("./pages/CryptoReport"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -36,6 +37,7 @@ const App = () => (
             <Route path="/cookies" element={<CookiesPolicy />} />
             <Route path="/tictactoe" element={<TicTacToe />} />
             <Route path="/profitpatterns" element={<ProfitPatterns />} />
+            <Route path="/crypto_report" element={<CryptoReport />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
