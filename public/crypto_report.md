@@ -2,19 +2,12 @@
 
 
 
-&nbsp;
-
-&nbsp;
-
 ## Key Highlights
 
-&nbsp;
-
-- 7,500 founders from 134 countries registered for Solana global hackathon as of October 24, 2025
+- 7,500 founders from 134 countries registered for Solana global hackathon
 - Solana native applications generated $3 billion in revenue in the past year, with planned upgrades expected to double network capacity by year-end
-- Solana Foundation launched Anchor security bounty program offering up to $100K for vulnerabilities in production code
+- Solana Foundation launched Anchor security bounty program with rewards up to $100k for vulnerabilities
 
-&nbsp;
 
 
 
@@ -23,65 +16,79 @@
 
 
 
-&nbsp;
-
-&nbsp;
-
 ## Key Developments
-
-&nbsp;
 
 *Important announcements and updates from the Solana ecosystem*
 
-&nbsp;
 
-
-### 1. Solana Global Hackathon Registration Reaches 7,500 Founders
+### 1. 7,500 Founders Register for Solana Global Hackathon
 
 7,500 founders from 134 countries have registered for the global Solana hackathon as of October 24, 2025
 
-**Why this matters:** Large developer activity indicates potential for new applications and protocols that wallets will need to integrate
+**Why this matters:** Significant developer activity indicates potential influx of new dApps and protocols that wallets will need to support
 
 **Category:** `network_activity` | **Source:** @solana — [View Tweet](https://twitter.com/solana/status/1981536798879662104)
 
-&nbsp;
 
-### 2. Solana Applications Generated $3 Billion Annual Revenue
+### 2. Solana Network Capacity to Double by Year-End
 
-Solana's native applications generated $3 billion in revenue in the past year. Planned upgrades are expected to double the network's capacity by year-end
+Planned upgrades are expected to double Solana network's capacity by year-end. Native applications generated $3 billion in revenue in the past year
 
-**Why this matters:** Network capacity doubling will affect transaction throughput and wallet performance requirements
+**Why this matters:** Network capacity doubling will impact transaction throughput and may require wallet infrastructure upgrades to handle increased transaction volume
 
-**Category:** `network_activity` | **Source:** @solana — [View Tweet](https://twitter.com/solana/status/1981022597295804471)
+**Category:** `protocol_update` | **Source:** @solana — [View Tweet](https://twitter.com/solana/status/1981022597295804471)
 
-&nbsp;
 
 ### 3. Phantom Adds MEGA-USD Perpetuals Trading
 
-Phantom launched MEGA-USD (MegaETH) hyperps trading with up to 3x leverage on October 22, 2025
+MEGA-USD (MegaETH) hyperps are now live in Phantom with up to 3x leverage
 
-**Why this matters:** Demonstrates wallet evolution toward integrated trading features beyond basic send/receive functionality
+**Why this matters:** Demonstrates wallet evolution beyond simple asset custody into advanced trading features; other wallets may need to consider similar functionality
 
 **Category:** `technical_development` | **Source:** @phantom — [View Tweet](https://twitter.com/phantom/status/1981059146591170825)
 
-&nbsp;
 
-### 4. Phantom Seeking Feature Input from Community
+### 4. P-Token Protocol Update Progress
 
-Phantom publicly requested feedback on what features to add next on October 22, 2025
+P-Token is progressing with 5 remaining steps: 1) Formal Verification completion, 2) Potential validator vote on SIMD 266, 3) SIMD 266 acceptance, 4) P-Token feature in deployed cluster, 5) P-Token activation
 
-**Why this matters:** Indicates active development cycle and community-driven product roadmap approach
+**Why this matters:** P-Token implementation via SIMD 266 will require wallet developers to integrate new token standard functionality
+
+**Category:** `protocol_update` | **Source:** @solana_devs — [View Tweet](https://twitter.com/solana_devs/status/1980302943737020854)
+
+
+### 5. Alpenglow Consensus Model Evolution Update
+
+Alpenglow was announced earlier this year as the evolution of Solana's consensus model. The mechanisms are still being discussed and decided
+
+**Why this matters:** Consensus model changes may impact transaction finality, confirmation times, and wallet UX for transaction status
+
+**Category:** `protocol_update` | **Source:** @solana_devs — [View Tweet](https://twitter.com/solana_devs/status/1979201539848675372)
+
+
+### 6. Anchor Security Bounty Program Launched
+
+Solana Foundation launched security bounty program for Anchor framework offering rewards up to $100k for vulnerabilities affecting production code. Bounties: High ($10K-$100K) for bypassing core checks, Medium ($5K-$25K) for DoS, Low ($100-$5K) for other issues
+
+**Why this matters:** Anchor framework security improvements will enhance safety of dApps that wallets interact with; wallet developers should monitor security updates
+
+**Category:** `technical_development` | **Source:** @SolanaFndn — [View Tweet](https://twitter.com/SolanaFndn/status/1979204100400038113)
+
+
+### 7. Phantom Soliciting Feature Requests
+
+Phantom wallet is actively asking users what features should be added next
+
+**Why this matters:** Indicates active development cycle and user-driven feature prioritization approach that other wallet teams can learn from
 
 **Category:** `other` | **Source:** @phantom — [View Tweet](https://twitter.com/phantom/status/1981127010853540315)
 
-&nbsp;
 
-### 5. Ore Protocol 10x Revenue Growth
+### 8. ORE Project Revenue Increase
 
-Ore protocol achieved a 10x increase in revenue within one month on Solana
+ORE project reported 10x increase in revenue in one month on Solana
 
-**Why this matters:** Rapid protocol growth may drive increased transaction volume and need for wallet optimization
+**Why this matters:** Rapid growth of projects on Solana may require wallets to support new tokens and protocols quickly
 
 **Category:** `network_activity` | **Source:** @solana — [View Tweet](https://twitter.com/solana/status/1981559555793269239)
 
-&nbsp;
