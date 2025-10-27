@@ -60,9 +60,9 @@ const CryptoReport = () => {
               prose-p:text-gray-700 prose-p:leading-relaxed prose-p:text-base prose-p:mb-4
               prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline hover:prose-a:text-blue-800
               prose-strong:text-gray-900 prose-strong:font-bold
-              prose-ul:text-gray-700 prose-ul:my-4
+              prose-ul:list-disc prose-ul:text-gray-700 prose-ul:my-6 prose-ul:ml-6 prose-ul:pl-4
               prose-ol:text-gray-700 prose-ol:my-4
-              prose-li:my-2 prose-li:text-base
+              prose-li:my-1 prose-li:text-base prose-li:leading-relaxed
               prose-table:border-collapse prose-table:w-full prose-table:my-8 prose-table:border-2 prose-table:border-gray-300
               prose-thead:bg-blue-600 prose-thead:border-b-2 prose-thead:border-blue-700
               prose-th:text-left prose-th:py-4 prose-th:px-4 prose-th:font-bold prose-th:text-white prose-th:text-sm prose-th:border-r prose-th:border-blue-500 prose-th:last:border-r-0
