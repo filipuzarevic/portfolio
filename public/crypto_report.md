@@ -11,10 +11,8 @@
 &nbsp;
 
 - 7,500 founders from 134 countries registered for Solana global hackathon as of October 24, 2025
-
 - Solana native applications generated $3 billion in revenue in the past year, with planned upgrades expected to double network capacity by year-end
-
-- Solana Foundation launched Anchor security bounty program offering up to $100K for vulnerabilities affecting production code
+- Solana Foundation launched Anchor security bounty program offering up to $100K for vulnerabilities in production code
 
 &nbsp;
 
@@ -42,77 +40,47 @@
 
 7,500 founders from 134 countries have registered for the global Solana hackathon as of October 24, 2025
 
-**Why this matters:** Large developer influx may lead to new dApps and protocols that wallets need to support
+**Why this matters:** Large developer activity indicates potential for new applications and protocols that wallets will need to integrate
 
-**Category:** `other` | **Source:** @solana — [View Tweet](https://twitter.com/solana/status/1981536798879662104)
-
-&nbsp;
-
-### 2. Solana Network Capacity Doubling Expected by Year-End
-
-Planned upgrades are expected to double Solana network's capacity by year-end. Native applications generated $3 billion in revenue in the past year
-
-**Why this matters:** Network capacity increase will affect transaction processing capabilities and wallet performance requirements
-
-**Category:** `protocol_update` | **Source:** @solana — [View Tweet](https://twitter.com/solana/status/1981022597295804471)
+**Category:** `network_activity` | **Source:** @solana — [View Tweet](https://twitter.com/solana/status/1981536798879662104)
 
 &nbsp;
 
-### 3. Phantom Adds MEGA-USD Perpetuals with 3x Leverage
+### 2. Solana Applications Generated $3 Billion Annual Revenue
 
-Phantom wallet launched MEGA-USD (MegaETH) perpetuals trading with up to 3x leverage on October 22, 2025
+Solana's native applications generated $3 billion in revenue in the past year. Planned upgrades are expected to double the network's capacity by year-end
 
-**Why this matters:** Demonstrates in-wallet perpetuals trading capabilities, a feature other wallets may need to consider implementing
+**Why this matters:** Network capacity doubling will affect transaction throughput and wallet performance requirements
+
+**Category:** `network_activity` | **Source:** @solana — [View Tweet](https://twitter.com/solana/status/1981022597295804471)
+
+&nbsp;
+
+### 3. Phantom Adds MEGA-USD Perpetuals Trading
+
+Phantom launched MEGA-USD (MegaETH) hyperps trading with up to 3x leverage on October 22, 2025
+
+**Why this matters:** Demonstrates wallet evolution toward integrated trading features beyond basic send/receive functionality
 
 **Category:** `technical_development` | **Source:** @phantom — [View Tweet](https://twitter.com/phantom/status/1981059146591170825)
 
 &nbsp;
 
-### 4. Phantom Soliciting Feature Requests
+### 4. Phantom Seeking Feature Input from Community
 
-Phantom wallet asking community for input on what features to add next
+Phantom publicly requested feedback on what features to add next on October 22, 2025
 
-**Why this matters:** Indicates competitive wallet feature development cycle and community-driven product direction
+**Why this matters:** Indicates active development cycle and community-driven product roadmap approach
 
 **Category:** `other` | **Source:** @phantom — [View Tweet](https://twitter.com/phantom/status/1981127010853540315)
 
 &nbsp;
 
-### 5. P-Token Implementation Progress Update
+### 5. Ore Protocol 10x Revenue Growth
 
-P-Token implementation has 5 remaining steps: 1) Formal Verification completion, 2) Potential validator vote on SIMD 266, 3) SIMD 266 acceptance, 4) P-Token feature in deployed cluster, 5) P-Token activation
+Ore protocol achieved a 10x increase in revenue within one month on Solana
 
-**Why this matters:** P-Token standard may require wallet infrastructure updates for token handling and display
-
-**Category:** `protocol_update` | **Source:** @solana_devs — [View Tweet](https://twitter.com/solana_devs/status/1980302943737020854)
-
-&nbsp;
-
-### 6. Alpenglow Consensus Model Update
-
-Alpenglow, announced as the evolution of Solana's consensus model earlier in 2025, has mechanisms still being discussed and decided
-
-**Why this matters:** Consensus model changes may affect transaction finality times and wallet confirmation logic
-
-**Category:** `protocol_update` | **Source:** @solana_devs — [View Tweet](https://twitter.com/solana_devs/status/1979201539848675372)
-
-&nbsp;
-
-### 7. Anchor Security Bounty Program Launched
-
-Solana Foundation launched security bounty program for Anchor framework offering up to $100K for vulnerabilities. High severity (bypassing core checks): $10K-$100K, Medium (DoS): $5K-$25K, Low (other issues): $100-$5K
-
-**Why this matters:** Security vulnerabilities in Anchor framework could affect dApps that wallets interact with
-
-**Category:** `technical_development` | **Source:** @SolanaFndn — [View Tweet](https://twitter.com/SolanaFndn/status/1979204100400038113)
-
-&nbsp;
-
-### 8. Ore Protocol Revenue Growth
-
-Ore protocol increased its revenue by 10x in one month on Solana
-
-**Why this matters:** Rapid protocol growth indicates potential for increased user interaction with this protocol through wallets
+**Why this matters:** Rapid protocol growth may drive increased transaction volume and need for wallet optimization
 
 **Category:** `network_activity` | **Source:** @solana — [View Tweet](https://twitter.com/solana/status/1981559555793269239)
 
