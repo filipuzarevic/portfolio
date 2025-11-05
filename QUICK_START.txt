@@ -1,0 +1,47 @@
+═══════════════════════════════════════════════════════════════════
+  EXPENSE TRACKER - QUICK START (3 Steps, 10 Minutes Total)
+═══════════════════════════════════════════════════════════════════
+
+STEP 1: Create Database Table (5 min)
+────────────────────────────────────────
+1. Go to: https://supabase.com
+2. Sign in → Click your project
+3. Click "SQL Editor" in left sidebar
+4. Copy the SQL code from WHAT_YOU_NEED_TO_DO.md (Step 1)
+5. Paste it and click "RUN"
+6. Done! ✓
+
+STEP 2: Deploy Your Site (2 min)
+────────────────────────────────────────
+Open Terminal and run:
+
+cd /Users/filipuzarevic/portfolio
+git add .
+git commit -m "Add expense tracker"
+git push
+
+(Vercel will auto-deploy in 2-3 minutes)
+
+STEP 3: Test It! (3 min)
+────────────────────────────────────────
+1. Visit: www.simpli-fi.me/expensetracker
+2. Click "Create Account"
+3. Enter email + password
+4. Check email → Click confirmation link
+5. Sign in and add your first expense!
+
+═══════════════════════════════════════════════════════════════════
+DONE! Your expense tracker is live at:
+👉 www.simpli-fi.me/expensetracker
+═══════════════════════════════════════════════════════════════════
+
+FEATURES:
+• Track expenses by category
+• Beautiful charts (pie, bar, line)
+• Filter by date and category
+• Export to CSV/Excel
+• Private & secure (each user sees only their own data)
+
+Need detailed help? Read: WHAT_YOU_NEED_TO_DO.md
+
+═══════════════════════════════════════════════════════════════════
