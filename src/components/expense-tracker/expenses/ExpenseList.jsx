@@ -1,7 +1,7 @@
 import { format } from 'date-fns';
 import { EXPENSE_CATEGORIES } from '../../../expense-tracker-utils/constants';
 
-export default function ExpenseList({ expenses, onDelete }) {
+export default function ExpenseList({ expenses, onDelete, onEdit }) {
   const getCategoryLabel = (value) => {
     const category = EXPENSE_CATEGORIES.find((cat) => cat.value === value);
     return category ? category.label : value;
@@ -56,6 +56,12 @@ export default function ExpenseList({ expenses, onDelete }) {
                   ${parseFloat(expense.amount).toFixed(2)}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <button
+                    onClick={() => onEdit(expense)}
+                    className="text-blue-600 hover:text-blue-900 mr-4"
+                  >
+                    Edit
+                  </button>
                   <button
                     onClick={() => onDelete(expense.id)}
                     className="text-red-600 hover:text-red-900"

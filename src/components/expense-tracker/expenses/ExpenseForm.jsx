@@ -87,7 +87,29 @@ export default function ExpenseForm({ onSubmit, initialData = null }) {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full md:w-auto px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50"
+        style={{
+          backgroundColor: '#2563eb',
+          color: '#ffffff',
+          padding: '10px 24px',
+          fontSize: '15px',
+          fontWeight: '600',
+          border: 'none',
+          borderRadius: '6px',
+          cursor: isSubmitting ? 'not-allowed' : 'pointer',
+          opacity: isSubmitting ? 0.5 : 1,
+          boxShadow: '0 2px 8px rgba(37, 99, 235, 0.3)',
+          transition: 'all 0.2s',
+        }}
+        onMouseEnter={(e) => {
+          if (!isSubmitting) {
+            e.currentTarget.style.backgroundColor = '#1d4ed8';
+            e.currentTarget.style.boxShadow = '0 4px 12px rgba(37, 99, 235, 0.4)';
+          }
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.backgroundColor = '#2563eb';
+          e.currentTarget.style.boxShadow = '0 2px 8px rgba(37, 99, 235, 0.3)';
+        }}
       >
         {isSubmitting ? 'Saving...' : initialData ? 'Update Expense' : 'Add Expense'}
       </button>
