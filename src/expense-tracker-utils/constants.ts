@@ -9,6 +9,7 @@ export const EXPENSE_CATEGORIES = [
   { value: 'savings', label: 'Savings' },
   { value: 'travel', label: 'Travel' },
   { value: 'entertainment', label: 'Entertainment' },
+  { value: 'health', label: 'Health' },
   { value: 'other_people', label: 'Other People' },
   { value: 'other', label: 'Other' },
 ];
@@ -24,6 +25,7 @@ export const CATEGORY_COLORS = {
   savings: '#06b6d4',
   travel: '#f97316',
   entertainment: '#a855f7',
+  health: '#22c55e',
   other_people: '#14b8a6',
   other: '#6b7280',
 };
