@@ -40,9 +40,22 @@ export function CategoryPieChart({ expenses }) {
 }
 
 export function MonthlyBarChart({ expenses }) {
+  // Group expenses by fiscal month (5th to 5th)
   const monthlyData = expenses.reduce((acc, expense) => {
-    const month = new Date(expense.date).toISOString().slice(0, 7);
-    acc[month] = (acc[month] || 0) + parseFloat(expense.amount);
+    const expenseDate = new Date(expense.date);
+    const day = expenseDate.getDate();
+
+    // If date is before the 5th, it belongs to the previous month's fiscal period
+    let fiscalMonth;
+    if (day < 5) {
+      const prevMonth = new Date(expenseDate);
+      prevMonth.setMonth(prevMonth.getMonth() - 1);
+      fiscalMonth = prevMonth.toISOString().slice(0, 7);
+    } else {
+      fiscalMonth = expenseDate.toISOString().slice(0, 7);
+    }
+
+    acc[fiscalMonth] = (acc[fiscalMonth] || 0) + parseFloat(expense.amount);
     return acc;
   }, {});
 
@@ -55,7 +68,7 @@ export function MonthlyBarChart({ expenses }) {
 
   return (
     <div className="bg-white rounded-lg shadow p-6">
-      <h3 className="text-lg font-semibold mb-4">Monthly Spending</h3>
+      <h3 className="text-lg font-semibold mb-4">Monthly Spending (Fiscal: 5th-5th)</h3>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart data={data}>
           <CartesianGrid strokeDasharray="3 3" />
