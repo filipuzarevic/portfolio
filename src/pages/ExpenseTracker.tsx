@@ -127,17 +127,25 @@ export default function ExpenseTracker() {
   const [authModal, setAuthModal] = useState<'signin' | 'signup' | null>(null);
   const [editingExpense, setEditingExpense] = useState<Expense | null>(null);
 
-  // Calculate default date range (5th of current month to 5th of next month)
+  // Calculate default date range for current fiscal month (5th to 5th)
   const getDefaultDateRange = () => {
     const today = new Date();
+    const currentDay = today.getDate();
     const currentMonth = today.getMonth();
     const currentYear = today.getFullYear();
 
-    // Start date: 5th of current month
-    const dateFrom = new Date(currentYear, currentMonth, 5);
+    let dateFrom: Date;
+    let dateTo: Date;
 
-    // End date: 5th of next month
-    const dateTo = new Date(currentYear, currentMonth + 1, 5);
+    // If today is before the 5th, fiscal month is from 5th of previous month to 4th of current month
+    if (currentDay < 5) {
+      dateFrom = new Date(currentYear, currentMonth - 1, 5);
+      dateTo = new Date(currentYear, currentMonth, 4);
+    } else {
+      // If today is on or after the 5th, fiscal month is from 5th of current month to 4th of next month
+      dateFrom = new Date(currentYear, currentMonth, 5);
+      dateTo = new Date(currentYear, currentMonth + 1, 4);
+    }
 
     return {
       dateFrom: dateFrom.toISOString().split('T')[0],
@@ -337,7 +345,7 @@ export default function ExpenseTracker() {
           <>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <CategoryPieChart expenses={filteredExpenses} />
-              <MonthlyBarChart expenses={filteredExpenses} />
+              <MonthlyBarChart expenses={expenses} />
             </div>
 
             <SpendingTrendChart expenses={filteredExpenses} />
