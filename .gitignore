@@ -15,6 +15,8 @@ dist-ssr
 # Environment variables
 .env
 .env.local
+.env*.local
+*.env
 
 # Editor directories and files
 .vscode/*
@@ -27,5 +29,13 @@ dist-ssr
 *.sln
 *.sw?
 public/background_vid.mp4
+public/vid_2.mp4
+public/data_to_analyse.csv
+
+# Vercel
 .vercel
-.env*.local
+
+# Large files
+*.mp4
+*.mov
+*.avi
