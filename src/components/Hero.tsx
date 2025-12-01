@@ -15,20 +15,35 @@ const Hero = () => {
   const handleVideoPlaying = useCallback(() => setVideoPlaying(true), []);
 
   useEffect(() => {
-    // Only start animations after video is loaded AND playing
-    if (!videoLoaded || !videoPlaying) return;
+    // Start animations after video is loaded and playing, or after 2 seconds as fallback
+    const fallbackTimer = setTimeout(() => {
+      if (!videoLoaded && !videoPlaying) {
+        // Video didn't load, show content anyway
+        setShowSimpli(true);
+        setShowDot(true);
+        setShowFi(true);
+        setShowTagline1(true);
+        setShowTagline2(true);
+        setShowCTA(true);
+      }
+    }, 2000);
 
-    // Sequential reveal animation: SIMPLI, dot, FI, tagline1, tagline2, CTA
-    const timers = [
-      setTimeout(() => setShowSimpli(true), 300),
-      setTimeout(() => setShowDot(true), 900),
-      setTimeout(() => setShowFi(true), 1500),
-      setTimeout(() => setShowTagline1(true), 2100),
-      setTimeout(() => setShowTagline2(true), 2700),
-      setTimeout(() => setShowCTA(true), 3300)
-    ];
+    if (videoLoaded && videoPlaying) {
+      clearTimeout(fallbackTimer);
+      // Sequential reveal animation: SIMPLI, dot, FI, tagline1, tagline2, CTA
+      const timers = [
+        setTimeout(() => setShowSimpli(true), 300),
+        setTimeout(() => setShowDot(true), 900),
+        setTimeout(() => setShowFi(true), 1500),
+        setTimeout(() => setShowTagline1(true), 2100),
+        setTimeout(() => setShowTagline2(true), 2700),
+        setTimeout(() => setShowCTA(true), 3300)
+      ];
 
-    return () => timers.forEach(clearTimeout);
+      return () => timers.forEach(clearTimeout);
+    }
+
+    return () => clearTimeout(fallbackTimer);
   }, [videoLoaded, videoPlaying]);
 
   return (
