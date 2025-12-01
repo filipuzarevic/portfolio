@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "deploy": "npm run build && npx vercel --prod --yes --token KB8P6pydtWcawvJgTP8elnlL",
-    "deploy:check": "git status --porcelain && echo 'WARNING: Uncommitted changes detected! Commit first.' || npm run deploy"
+    "deploy:check": "git status --porcelain && echo 'WARNING: Uncommitted changes detected! Commit first.' || npm run deploy",
+    "prepare": "husky"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -79,6 +80,7 @@
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
+    "husky": "^9.1.7",
     "lovable-tagger": "^1.1.7",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.11",

@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Check for uncommitted changes before push
+if ! git diff-index --quiet HEAD --; then
+  echo "❌ Error: You have uncommitted changes!"
+  echo "Please commit or stash your changes before pushing."
+  echo ""
+  echo "Uncommitted files:"
+  git status --short
+  exit 1
+fi
+
+echo "✅ All changes committed. Proceeding with push..."

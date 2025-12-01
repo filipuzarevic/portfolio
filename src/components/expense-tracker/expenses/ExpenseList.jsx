@@ -58,13 +58,13 @@ export default function ExpenseList({ expenses, onDelete, onEdit }) {
                 <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                   <button
                     onClick={() => onEdit(expense)}
-                    className="text-blue-600 hover:text-blue-900 mr-4"
+                    className="btn-action-edit"
                   >
                     Edit
                   </button>
                   <button
                     onClick={() => onDelete(expense.id)}
-                    className="text-red-600 hover:text-red-900"
+                    className="btn-action-delete"
                   >
                     Delete
                   </button>

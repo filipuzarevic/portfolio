@@ -4,12 +4,19 @@ import type { Config } from "tailwindcss";
 export default {
 	darkMode: ["class"],
 	content: [
-		"./pages/**/*.{ts,tsx}",
-		"./components/**/*.{ts,tsx}",
-		"./app/**/*.{ts,tsx}",
-		"./src/**/*.{ts,tsx}",
+		"./pages/**/*.{ts,tsx,js,jsx}",
+		"./components/**/*.{ts,tsx,js,jsx}",
+		"./app/**/*.{ts,tsx,js,jsx}",
+		"./src/**/*.{ts,tsx,js,jsx}",
 	],
 	prefix: "",
+	// Safelist important utility classes that might be dynamically generated
+	safelist: [
+		'bg-blue-600',
+		'bg-blue-700',
+		'hover:bg-blue-700',
+		'text-white',
+	],
 	theme: {
 		container: {
 			center: true,
