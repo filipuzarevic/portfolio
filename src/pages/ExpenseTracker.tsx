@@ -126,10 +126,31 @@ export default function ExpenseTracker() {
   const [loading, setLoading] = useState(true);
   const [authModal, setAuthModal] = useState<'signin' | 'signup' | null>(null);
   const [editingExpense, setEditingExpense] = useState<Expense | null>(null);
+
+  // Calculate default date range (5th of current month to 5th of next month)
+  const getDefaultDateRange = () => {
+    const today = new Date();
+    const currentMonth = today.getMonth();
+    const currentYear = today.getFullYear();
+
+    // Start date: 5th of current month
+    const dateFrom = new Date(currentYear, currentMonth, 5);
+
+    // End date: 5th of next month
+    const dateTo = new Date(currentYear, currentMonth + 1, 5);
+
+    return {
+      dateFrom: dateFrom.toISOString().split('T')[0],
+      dateTo: dateTo.toISOString().split('T')[0],
+    };
+  };
+
+  const defaultDates = getDefaultDateRange();
+
   const [filters, setFilters] = useState<ExpenseFiltersType>({
     category: '',
-    dateFrom: '',
-    dateTo: '',
+    dateFrom: defaultDates.dateFrom,
+    dateTo: defaultDates.dateTo,
   });
   const navigate = useNavigate();
 
