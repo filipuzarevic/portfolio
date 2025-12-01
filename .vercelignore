@@ -1,0 +1,7 @@
+public/background_vid.mp4
+public/vid_2.mp4
+public/data_to_analyse.csv
+node_modules
+.env
+.env.local
+*.log

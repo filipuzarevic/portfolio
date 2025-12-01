@@ -1,12 +1,6 @@
 import { EXPENSE_CATEGORIES } from '../../../expense-tracker-utils/constants';
-import type { ExpenseFilters as ExpenseFiltersType } from '@/expense-tracker-utils/types';
 
-interface ExpenseFiltersProps {
-  filters: ExpenseFiltersType;
-  onFilterChange: (filters: ExpenseFiltersType) => void;
-}
-
-export default function ExpenseFilters({ filters, onFilterChange }: ExpenseFiltersProps) {
+export default function ExpenseFilters({ filters, onFilterChange }) {
   return (
     <div className="bg-white rounded-lg shadow p-4">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

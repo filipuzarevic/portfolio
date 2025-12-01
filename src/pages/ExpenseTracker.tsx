@@ -125,6 +125,7 @@ export default function ExpenseTracker() {
   const [filteredExpenses, setFilteredExpenses] = useState<Expense[]>([]);
   const [loading, setLoading] = useState(true);
   const [authModal, setAuthModal] = useState<'signin' | 'signup' | null>(null);
+  const [editingExpense, setEditingExpense] = useState<Expense | null>(null);
   const [filters, setFilters] = useState<ExpenseFiltersType>({
     category: '',
     dateFrom: '',
@@ -182,19 +183,34 @@ export default function ExpenseTracker() {
 
   const handleAddExpense = async (data: ExpenseFormData) => {
     try {
-      const { error } = await supabase.from('expenses').insert([
-        {
-          ...data,
-          user_id: user!.id,
-          amount: parseFloat(data.amount.toString()),
-        },
-      ]);
+      if (editingExpense) {
+        // Update existing expense
+        const { error } = await supabase
+          .from('expenses')
+          .update({
+            ...data,
+            amount: parseFloat(data.amount.toString()),
+          })
+          .eq('id', editingExpense.id);
 
-      if (error) throw error;
+        if (error) throw error;
+        setEditingExpense(null);
+      } else {
+        // Add new expense
+        const { error } = await supabase.from('expenses').insert([
+          {
+            ...data,
+            user_id: user!.id,
+            amount: parseFloat(data.amount.toString()),
+          },
+        ]);
+
+        if (error) throw error;
+      }
       await fetchExpenses();
     } catch (error: any) {
-      console.error('Error adding expense:', error);
-      alert('Error adding expense: ' + error.message);
+      console.error('Error saving expense:', error);
+      alert('Error saving expense: ' + error.message);
     }
   };
 
@@ -210,6 +226,12 @@ export default function ExpenseTracker() {
       console.error('Error deleting expense:', error);
       alert('Error deleting expense: ' + error.message);
     }
+  };
+
+  const handleEditExpense = (expense: Expense) => {
+    setEditingExpense(expense);
+    // Scroll to top where the form is
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleSignOut = async () => {
@@ -263,7 +285,28 @@ export default function ExpenseTracker() {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
-        <ExpenseForm onSubmit={handleAddExpense} />
+        <div>
+          {editingExpense && (
+            <div className="mb-4 p-4 bg-blue-50 border border-blue-200 rounded-lg flex justify-between items-center">
+              <span className="text-blue-800 font-medium">Editing expense</span>
+              <button
+                onClick={() => setEditingExpense(null)}
+                className="text-blue-600 hover:text-blue-800 font-medium"
+              >
+                Cancel
+              </button>
+            </div>
+          )}
+          <ExpenseForm
+            onSubmit={handleAddExpense}
+            initialData={editingExpense ? {
+              amount: editingExpense.amount.toString(),
+              description: editingExpense.description || '',
+              category: editingExpense.category,
+              date: editingExpense.date,
+            } : null}
+          />
+        </div>
 
         <Summary expenses={filteredExpenses} />
 
@@ -282,7 +325,11 @@ export default function ExpenseTracker() {
           </>
         )}
 
-        <ExpenseList expenses={filteredExpenses} onDelete={handleDeleteExpense} />
+        <ExpenseList
+          expenses={filteredExpenses}
+          onDelete={handleDeleteExpense}
+          onEdit={handleEditExpense}
+        />
       </main>
     </div>
   );

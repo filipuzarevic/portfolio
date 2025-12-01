@@ -1,20 +1,13 @@
 import { useForm } from 'react-hook-form';
-import { useEffect } from 'react';
 import { EXPENSE_CATEGORIES } from '../../../expense-tracker-utils/constants';
-import type { ExpenseFormData } from '@/expense-tracker-utils/types';
 
-interface ExpenseFormProps {
-  onSubmit: (data: ExpenseFormData) => Promise<void>;
-  initialData?: ExpenseFormData | null;
-}
-
-export default function ExpenseForm({ onSubmit, initialData = null }: ExpenseFormProps) {
+export default function ExpenseForm({ onSubmit, initialData = null }) {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<ExpenseFormData>({
+  } = useForm({
     defaultValues: initialData || {
       amount: '',
       description: '',
@@ -23,21 +16,7 @@ export default function ExpenseForm({ onSubmit, initialData = null }: ExpenseFor
     },
   });
 
-  // Reset form when initialData changes
-  useEffect(() => {
-    if (initialData) {
-      reset(initialData);
-    } else {
-      reset({
-        amount: '',
-        description: '',
-        category: 'food',
-        date: new Date().toISOString().split('T')[0],
-      });
-    }
-  }, [initialData, reset]);
-
-  const onSubmitForm = async (data: ExpenseFormData) => {
+  const onSubmitForm = async (data) => {
     await onSubmit(data);
     if (!initialData) {
       reset();
@@ -105,15 +84,13 @@ export default function ExpenseForm({ onSubmit, initialData = null }: ExpenseFor
         </div>
       </div>
 
-      <div className="flex justify-center md:justify-start mt-6">
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full md:w-auto px-10 py-5 text-xl font-extrabold rounded-xl text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-6 focus:ring-blue-400 disabled:opacity-50 disabled:cursor-not-allowed shadow-2xl hover:shadow-blue-500/50 transition-all transform hover:scale-110 border-4 border-blue-800"
-        >
-          {isSubmitting ? 'SAVING...' : initialData ? 'UPDATE EXPENSE' : 'ADD EXPENSE'}
-        </button>
-      </div>
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className="w-full md:w-auto px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50"
+      >
+        {isSubmitting ? 'Saving...' : initialData ? 'Update Expense' : 'Add Expense'}
+      </button>
     </form>
   );
 }

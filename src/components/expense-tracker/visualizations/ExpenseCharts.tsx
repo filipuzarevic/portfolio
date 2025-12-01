@@ -1,5 +1,5 @@
 import { PieChart, Pie, Cell, BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { CATEGORY_COLORS, EXPENSE_CATEGORIES } from '@/expense-tracker-utils/constants';
+import { CATEGORY_COLORS, EXPENSE_CATEGORIES } from '../../../expense-tracker-utils/constants';
 import type { Expense } from '@/expense-tracker-utils/types';
 
 interface ChartProps {
