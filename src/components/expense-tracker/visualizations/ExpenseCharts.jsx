@@ -1,4 +1,4 @@
-import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { CATEGORY_COLORS, EXPENSE_CATEGORIES } from '../../../expense-tracker-utils/constants';
 
 export function CategoryPieChart({ expenses }) {
@@ -7,33 +7,37 @@ export function CategoryPieChart({ expenses }) {
     return acc;
   }, {});
 
-  const data = Object.entries(categoryTotals).map(([category, amount]) => ({
-    name: EXPENSE_CATEGORIES.find(cat => cat.value === category)?.label || category,
-    value: amount,
-    category,
-  }));
+  const total = Object.values(categoryTotals).reduce((sum, amount) => sum + amount, 0);
+
+  const data = Object.entries(categoryTotals)
+    .map(([category, amount]) => ({
+      name: EXPENSE_CATEGORIES.find(cat => cat.value === category)?.label || category,
+      amount: amount,
+      percentage: ((amount / total) * 100).toFixed(1),
+      category,
+    }))
+    .sort((a, b) => b.amount - a.amount); // Sort from highest to lowest
 
   return (
     <div className="bg-white rounded-lg shadow p-6">
       <h3 className="text-lg font-semibold mb-4">Spending by Category</h3>
       <ResponsiveContainer width="100%" height={300}>
-        <PieChart>
-          <Pie
-            data={data}
-            cx="50%"
-            cy="50%"
-            labelLine={false}
-            label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
-            outerRadius={80}
-            fill="#8884d8"
-            dataKey="value"
-          >
+        <BarChart data={data} layout="vertical" margin={{ left: 20, right: 30 }}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis type="number" />
+          <YAxis dataKey="name" type="category" width={100} />
+          <Tooltip
+            formatter={(value, name) => {
+              const item = data.find(d => d.amount === value);
+              return [`$${value.toFixed(2)} (${item?.percentage}%)`, 'Amount'];
+            }}
+          />
+          <Bar dataKey="amount">
             {data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={CATEGORY_COLORS[entry.category] || '#6b7280'} />
             ))}
-          </Pie>
-          <Tooltip formatter={(value) => `$${value.toFixed(2)}`} />
-        </PieChart>
+          </Bar>
+        </BarChart>
       </ResponsiveContainer>
     </div>
   );
