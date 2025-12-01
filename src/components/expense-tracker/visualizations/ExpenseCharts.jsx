@@ -1,4 +1,4 @@
-import { PieChart, Pie, Cell, BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { CATEGORY_COLORS, EXPENSE_CATEGORIES } from '../../../expense-tracker-utils/constants';
 
 export function CategoryPieChart({ expenses }) {
@@ -82,33 +82,3 @@ export function MonthlyBarChart({ expenses }) {
   );
 }
 
-export function SpendingTrendChart({ expenses }) {
-  const dailyData = expenses.reduce((acc, expense) => {
-    const date = expense.date;
-    acc[date] = (acc[date] || 0) + parseFloat(expense.amount);
-    return acc;
-  }, {});
-
-  const data = Object.entries(dailyData)
-    .map(([date, amount]) => ({
-      date,
-      amount,
-    }))
-    .sort((a, b) => a.date.localeCompare(b.date));
-
-  return (
-    <div className="bg-white rounded-lg shadow p-6">
-      <h3 className="text-lg font-semibold mb-4">Spending Trend</h3>
-      <ResponsiveContainer width="100%" height={300}>
-        <LineChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="date" />
-          <YAxis />
-          <Tooltip formatter={(value) => `$${value.toFixed(2)}`} />
-          <Legend />
-          <Line type="monotone" dataKey="amount" stroke="#3b82f6" strokeWidth={2} />
-        </LineChart>
-      </ResponsiveContainer>
-    </div>
-  );
-}

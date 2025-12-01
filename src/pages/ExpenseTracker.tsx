@@ -6,7 +6,7 @@ import ExpenseList from '@/components/expense-tracker/expenses/ExpenseList';
 import ExpenseFilters from '@/components/expense-tracker/expenses/ExpenseFilters';
 import Summary from '@/components/expense-tracker/dashboard/Summary';
 import ExportButtons from '@/components/expense-tracker/dashboard/ExportButtons';
-import { CategoryPieChart, MonthlyBarChart, SpendingTrendChart } from '@/components/expense-tracker/visualizations/ExpenseCharts';
+import { CategoryPieChart, MonthlyBarChart } from '@/components/expense-tracker/visualizations/ExpenseCharts';
 import type { Expense, ExpenseFormData, ExpenseFilters as ExpenseFiltersType } from '@/expense-tracker-utils/types';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
@@ -347,8 +347,6 @@ export default function ExpenseTracker() {
               <CategoryPieChart expenses={filteredExpenses} />
               <MonthlyBarChart expenses={expenses} />
             </div>
-
-            <SpendingTrendChart expenses={filteredExpenses} />
 
             <ExportButtons expenses={filteredExpenses} />
           </>
