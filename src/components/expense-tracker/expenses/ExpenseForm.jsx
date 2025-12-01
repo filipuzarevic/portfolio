@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import { useEffect } from 'react';
 import { EXPENSE_CATEGORIES } from '../../../expense-tracker-utils/constants';
 
 export default function ExpenseForm({ onSubmit, initialData = null }) {
@@ -8,13 +9,27 @@ export default function ExpenseForm({ onSubmit, initialData = null }) {
     reset,
     formState: { errors, isSubmitting },
   } = useForm({
-    defaultValues: initialData || {
+    defaultValues: {
       amount: '',
       description: '',
       category: 'food',
       date: new Date().toISOString().split('T')[0],
     },
   });
+
+  // Update form values when initialData changes
+  useEffect(() => {
+    if (initialData) {
+      reset(initialData);
+    } else {
+      reset({
+        amount: '',
+        description: '',
+        category: 'food',
+        date: new Date().toISOString().split('T')[0],
+      });
+    }
+  }, [initialData, reset]);
 
   const onSubmitForm = async (data) => {
     await onSubmit(data);
