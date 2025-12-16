@@ -137,10 +137,15 @@ Supabase credentials are hardcoded in `src/integrations/supabase/client.ts` (aut
 ## Deployment
 
 ### Vercel Configuration
+- **Vercel Account**: fuzarevi1@gmail.com (team: filips-projects-0dee303f)
+- **Live Domain**: https://www.simpli-fi.me
+- **Project Name**: portfolio
 - Build command: `npm run build`
 - Output directory: `dist`
 - Framework: Vite
 - Rewrites: All routes → `/index.html` (SPA mode)
+
+**IMPORTANT**: This project is connected to `fuzarevi1@gmail.com`. There is a separate, older portfolio project connected to `fuzarevi@gmail.com` (https://portfolio-nine-umber-84.vercel.app/) which is a different codebase. Do not confuse the two.
 
 ### Deployment Token
 The active Vercel token is embedded in `package.json` deploy scripts. Do not commit new tokens without updating the scripts.
