@@ -52,7 +52,9 @@ The app uses **React Router** with lazy-loaded route components for optimal bund
 
 ## Expense Tracker Feature
 
-The expense tracker is a full-featured financial management application integrated into the portfolio.
+The expense tracker is a full-featured financial management application **integrated into the portfolio** at `/expensetracker`.
+
+**IMPORTANT**: This is NOT a separate Vercel project. The expense tracker is a page within this portfolio application, accessible at https://www.simpli-fi.me/expensetracker. There is an archived version at `/Users/filipuzarevic/expense-tracker-archive` which is no longer used.
 
 ### Architecture
 ```
