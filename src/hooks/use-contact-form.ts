@@ -25,9 +25,10 @@ export const useContactForm = () => {
     try {
       const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 
-      // Debug logging
+      // Debug logging - check environment variables
       console.log("Access key exists:", !!accessKey);
       console.log("Access key (first 10 chars):", accessKey?.substring(0, 10));
+      console.log("All env vars:", import.meta.env);
 
       if (!accessKey) {
         throw new Error("Web3Forms access key is not configured. Please check environment variables.");
